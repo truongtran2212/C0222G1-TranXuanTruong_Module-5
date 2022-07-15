@@ -1,4 +1,4 @@
-function totalFibonanci(quantity: number) {
+function totalFibonacci(quantity: number) {
     let total: number = 0
     let number1: number = 0
     let number2: number = 1
@@ -14,7 +14,7 @@ function totalFibonanci(quantity: number) {
         sum += total
         console.log(total)
     }
-    console.log("Tổng của dãy số fibonanci là " + sum)
+    console.log("Tổng của " + quantity + " số fibonacci là " + sum)
 }
 
-totalFibonanci(5)
+totalFibonacci(5)

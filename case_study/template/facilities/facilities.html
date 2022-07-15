@@ -84,9 +84,7 @@
             background-color: #555;
         }
 
-        #serviceType {
-            margin: 0 0;
-        }
+
     </style>
 </head>
 <body>
@@ -183,7 +181,11 @@
                 </div>
             </li>
         </ul>
-
+    </div>
+    <div>
+        <button style="margin-right: 30px; font-size: 1.5rem"
+                class="createFacilities btn btn-light" data-toggle="modal"
+                data-target="#form-create">Create</button>
     </div>
 </nav>
 
@@ -193,8 +195,10 @@
         FACILITIES</h1>
 </div>
 
+
+
 <br>
-<!-- card-->
+                        <!-- card-->
 <div class="container">
     <div class="card-deck">
         <div class="card container-img">
@@ -287,6 +291,7 @@
 
 <br>
 
+                                <!-- card-->
 <div class="container">
     <div class="card-deck">
         <div class="card container-img">
@@ -515,20 +520,19 @@
     </div>
 </div>
 
-<!--update-->
+                            <!--       modal update-->
 
 <div class="modal" id="form-update">
     <div class="modal-dialog">
         <div class="modal-content">
-            <!--            <form id="update" method="post" class="w-100 bg-white">-->
             <div class="p-3">
-                <h4 style="text-align: center">Thêm dịch vụ</h4>
+                <h4 style="text-align: center">Chỉnh sửa dịch vụ</h4>
                 <div class="form-group">
                     <input class="form-control" type="hidden" id="serviceId">
 
                     <div class="form-group">
                         <label>Loại dịch vụ</label>
-                        <select class="form-group w-100" id="serviceType" onchange="formUpdate()">
+                        <select class="form-control w-100" id="serviceType" onchange="formUpdate()">
                             <option value="1">Villa</option>
                             <option value="2">House</option>
                             <option value="3">Room</option>
@@ -596,7 +600,101 @@
 
                     <div class="form-group">
                         <label>Kiểu thuê</label>
-                        <select class="form-group w-100" id="rentType">
+                        <select class="form-control w-100" id="rentType">
+                            <option value="1">Thuê theo năm</option>
+                            <option value="2">Thuê theo tháng</option>
+                            <option value="3">Thuê theo ngày</option>
+                            <option value="4">Thuê theo giờ</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-dark" type="submit">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    <!--modal create-->
+
+<div class="modal" id="form-create">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="p-3">
+                <h4 style="text-align: center">Chỉnh sửa dịch vụ</h4>
+                <div class="form-group">
+                    <input class="form-control" type="hidden" id="add-serviceId">
+
+                    <div class="form-group">
+                        <label>Loại dịch vụ</label>
+                        <select class="form-control w-100" id="add-serviceType" onchange="formCreate()">
+                            <option value="1">Villa</option>
+                            <option value="2">House</option>
+                            <option value="3">Room</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mã dịch vụ</label>
+                        <input class="form-control" type="text" id="add-serviceCode">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tên dịch vụ</label>
+                        <input class="form-control" type="text" id="add-serviceName">
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Diện tích sử dụng</label>
+                        <input class="form-control" type="text" id="add-serviceArea">
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Giá</label>
+                        <input class="form-control" type="text" id="add-serviceCost">
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Số người tối đa</label>
+                        <input class="form-control" type="text" id="add-serviceMaxPeople">
+
+
+                    </div>
+
+                    <div class="form-group" id="add-standardRoom">
+                        <label>Tiêu chuẩn phòng</label>
+                        <input class="form-control" type="text" >
+                    </div>
+
+                    <div class="form-group" id="add-descriptionOtherConvenience">
+                        <label>Mô tả tiện nghi khác</label>
+                        <input class="form-control" type="text" >
+
+
+                    </div>
+
+                    <div class="form-group" id="add-poolArea">
+                        <label>Diện tích hồ bơi</label>
+                        <input class="form-control" type="text" >
+
+                    </div>
+
+                    <div class="form-group" id="add-numberOfFloors">
+                        <label>Số tầng</label>
+                        <input class="form-control" type="text">
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kiểu thuê</label>
+                        <select class="form-control w-100" id="add-rentType">
                             <option value="1">Thuê theo năm</option>
                             <option value="2">Thuê theo tháng</option>
                             <option value="3">Thuê theo ngày</option>
@@ -609,6 +707,7 @@
         </div>
     </div>
 </div>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -620,6 +719,8 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 <script>
+
+    // script update
 
     function formUpdate() {
         var id = document.getElementById("serviceType").value;
@@ -643,6 +744,29 @@
         }
     }
 
+                    // script create
+
+    function formCreate() {
+        var id = document.getElementById("add-serviceType").value;
+
+        // So sánh bằng kiểu dữ liệu String
+        if(id === '1'){ // Villa
+            document.getElementById("add-standardRoom").style.display = "block"
+            document.getElementById("add-descriptionOtherConvenience").style.display = "block"
+            document.getElementById("add-poolArea").style.display = "block"
+            document.getElementById("add-numberOfFloors").style.display = "block"
+        }else if(id === '2'){ // House
+            document.getElementById("add-standardRoom").style.display = "block"
+            document.getElementById("add-descriptionOtherConvenience").style.display = "block"
+            document.getElementById("add-poolArea").style.display = "none"
+            document.getElementById("add-numberOfFloors").style.display = "block"
+        }else { // Room
+            document.getElementById("add-standardRoom").style.display = "none"
+            document.getElementById("add-descriptionOtherConvenience").style.display = "none"
+            document.getElementById("add-poolArea").style.display = "none"
+            document.getElementById("add-numberOfFloors").style.display = "none"
+        }
+    }
 
     // delete
     var id;
@@ -661,7 +785,6 @@
 
     var mybutton = document.getElementById("myBtn");
 
-    // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function () {
         scrollFunction();
     };
@@ -674,7 +797,6 @@
         }
     }
 
-    // When the user clicks on the button, scroll to the top of the document
     function topFunction() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;

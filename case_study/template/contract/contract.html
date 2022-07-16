@@ -3,8 +3,434 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/dbc3483aca.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-image: url("https://images.unsplash.com/photo-1517384084767-6bc118943770?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
+            background-size: cover;
+        }
+
+        .bg-menu {
+            background-image: url("https://www.pandotrip.com/wp-content/uploads/2013/08/french-polynesia-huahine.jpg");
+            background-size: cover;
+            height: 700px;
+            width: 100%;
+        }
+
+
+        .container-img:hover .image {
+            opacity: 0.7;
+        }
+
+        .container-img:hover .middle {
+            opacity: 1;
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #00EB6A;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        #myBtn:hover {
+            background-color: #555;
+        }
+
+        .bg-modal {
+            background-image: url("https://images.unsplash.com/photo-1528460033278-a6ba57020470?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80");
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+    </style>
 </head>
 <body>
+<div class="container-fluid">
+    <div class="row" style="display: flex">
+        <div class="col-md-2">
+            <img src="https://kynghiviet.vn/public/upload/Tour/2020/FURAMA%20RESORT%20DA%20NANG/furama%20logo.png"
+                 height="100px" width="100%">
+        </div>
+        <div class="col-md-7 row" style="display: flex">
+            <div class="col-md-5" style="padding-top: 12px">
+                <p style="text-align: center"><i class="fa-solid fa-location-dot" style="color: darkgreen"></i>103 – 105
+                    Đường Võ Nguyên Giáp, Phường Khuê Mỹ, Quận Ngũ hành Sơn, Tp. Đà
+                    Nẵng, Việt Nam</p>
+            </div>
+            <div class="col-md-2">
+
+
+            </div>
+            <div class="col-md-5" style="padding-top: 12px">
+                <p style="text-align: center"><i class="fa-solid fa-phone" style="color: darkgreen"></i>&nbsp&nbsp
+                    0968686868</p>
+                <p style="text-align: center"><i class="fa-solid fa-envelope" style="color: darkgreen"></i>&nbsp&nbsp
+                    truongtran221298@gmail.com</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h5 style="padding-left: 30px; margin-top: 20px">Trần Xuân Trường</h5>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
+                    <i class="fa-solid fa-magnifying-glass" style="font-size: 1.5rem"></i></button>
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--navbar-->
+
+<nav class="navbar navbar-expand-lg navbar-light "
+     style="padding-left: 33%; background-color: #467FFA; font-size: 20px; position: sticky ; top: 0; z-index: 999">
+    <a class="navbar-brand" href="#" style="color: white; font-size: 20px">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle navbarDropdown" href="#" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false" style="color: white">
+                    Employee
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle navbarDropdown" href="#" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false" style="color: white">
+                    Customer
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle navbarDropdown" href="#" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false" style="color: white">
+                    Service
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle navbarDropdown" href="#" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false" style="color: white">
+                    Contract
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <button style="margin-right: 30px; font-size: 1.5rem"
+                class="createFacilities btn btn-light" data-toggle="modal"
+                data-target="#form-create">Create
+        </button>
+    </div>
+</nav>
+
+<!-- List-->
+<div class="bg-menu table-dark table text-light font-weight-bold" style="padding-top: 100px">
+    <div class="container-fluid body">
+        <div class="center container-fluid">
+            <h1 style="text-align: center">Danh sách hợp đồng</h1>
+            <table style="border-collapse:  collapse; width: 100%" id="employeeList">
+                <thead>
+                <tr>
+                    <th class="text-center">Số hợp đồng</th>
+                    <th class="text-center">Ngày bắt đầu</th>
+                    <th class="text-center">Ngày kết thúc</th>
+                    <th class="text-center">Số tiền cọc trước</th>
+                    <th class="text-center">Tổng số tiền thanh toán</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="text-center">1</td>
+                    <td>17-07-2022</td>
+                    <td>18-07-2022</td>
+                    <td>50000</td>
+                    <td>100000</td>
+                </tr>
+
+                <tr>
+                    <td class="text-center">2</td>
+                    <td>17-07-2022</td>
+                    <td>19-07-2022</td>
+                    <td>20000</td>
+                    <td>30000</td>
+                </tr>
+
+                <tr>
+                    <td class="text-center">3</td>
+                    <td>17-07-2022</td>
+                    <td>20-07-2022</td>
+                    <td>40000</td>
+                    <td>100000</td>
+                </tr>
+
+                <tr>
+                    <td class="text-center">4</td>
+                    <td>17-07-2022</td>
+                    <td>21-07-2022</td>
+                    <td>15000</td>
+                    <td>20000</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <button class="btn btn-light">Previous</button>
+            <button class="btn btn-light">1</button>
+            <button class="btn btn-light">2</button>
+            <button class="btn btn-light">...</button>
+            <button class="btn btn-light">Next</button>
+
+        </div>
+    </div>
+</div>
+
+<!-- footer-->
+
+<footer class="text-center text-white" style="background-color: #61FFF5;">
+    <div class="container p-4">
+        <section class="">
+            <div class="row">
+                <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                    <div
+                            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                            data-ripple-color="light"
+                    >
+                        <img
+                                src="http://hotlinedatphong.com/wp-content/uploads/2020/10/nha-hang-don-ciprianas-furama-da-nang-1024x683-1.jpg"
+                                class="w-100"
+                        />
+                        <a href="#!">
+                            <div
+                                    class="mask"
+                                    style="background-color: rgba(251, 251, 251, 0.2);"
+                            ></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                    <div
+                            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                            data-ripple-color="light"
+                    >
+                        <img
+                                src="https://cdn2.vietnambooking.com/wp-content/uploads/hotel_pro/hotel_352617/b99defceeb91d056d6a47e3027c14bcf.jpg"
+                                class="w-100" style="height: 105px"
+                        />
+                        <a href="#!">
+                            <div
+                                    class="mask"
+                                    style="background-color: rgba(251, 251, 251, 0.2);"
+                            ></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                    <div
+                            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                            data-ripple-color="light"
+                    >
+                        <img
+                                src="https://resortdanang.info/wp-content/uploads/2018/11/furama-da-nang-1.jpg"
+                                class="w-100" style="height: 105px"
+                        />
+                        <a href="#!">
+                            <div
+                                    class="mask"
+                                    style="background-color: rgba(251, 251, 251, 0.2);"
+                            ></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                    <div
+                            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                            data-ripple-color="light"
+                    >
+                        <img
+                                src="https://cdn2.vietnambooking.com/wp-content/uploads/hotel_pro/hotel_344796/ce33b9e382143c73592f027588d44826.jpg"
+                                class="w-100" style="height: 105px"
+                        />
+                        <a href="#!">
+                            <div
+                                    class="mask"
+                                    style="background-color: rgba(251, 251, 251, 0.2);"
+                            ></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                    <div
+                            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                            data-ripple-color="light"
+                    >
+                        <img
+                                src="https://cafebatdongsan.com.vn/uploads/image/images/furama-ariyana-condotel-da-nang.jpg"
+                                class="w-100" style="height: 105px"
+                        />
+                        <a href="#!">
+                            <div
+                                    class="mask"
+                                    style="background-color: rgba(251, 251, 251, 0.2);"
+                            ></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+                    <div
+                            class="bg-image hover-overlay ripple shadow-1-strong rounded"
+                            data-ripple-color="light"
+                    >
+                        <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR-GgLvthalIwkgUFmseKau8GDsFPVLCKStQ&usqp=CAU"
+                                class="w-100" style="height: 105px"
+                        />
+                        <a href="#!">
+                            <div
+                                    class="mask"
+                                    style="background-color: rgba(251, 251, 251, 0.2);"
+                            ></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+</footer>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i style="" class="fa-solid fa-arrow-up"></i></button>
+
+<!--                modal create customer-->
+
+<div class="modal" id="form-create">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="p-3 bg-modal">
+                <h4 style="text-align: center">Thêm hợp đồng</h4>
+
+                <div class="form-group">
+                    <label>Ngày bắt đầu</label>
+                    <input class="form-control" type="date" id="add-customerCode">
+                </div>
+
+                <div class="form-group">
+                    <label>Ngày kết thúc</label>
+                    <input class="form-control" type="date" id="add-customerName">
+
+                </div>
+
+                <div class="form-group">
+                    <label>Số tiền cọc trước</label>
+                    <input class="form-control" type="text" id="add-customerBirthday">
+
+                </div>
+
+                <div class="form-group">
+                    <label>Tổng số tiền thanh toán</label>
+                    <input class="form-control" type="text" id="total-money">
+                </div>
+
+                <button class="btn btn-dark" type="submit">Add new</button>
+                <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script>
+
+
+    // delete
+    var id;
+
+    function customerIndex(index, name) {
+        id = index;
+        document.getElementById("name").innerHTML = "Bạn có muốn xóa dịch vụ";
+    };
+
+    function employeeIndex2() {
+        let link = "/delete-employee/" + id;
+        window.location.href = link;
+    };
+
+    // Back to top
+
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+
+</script>
 </html>

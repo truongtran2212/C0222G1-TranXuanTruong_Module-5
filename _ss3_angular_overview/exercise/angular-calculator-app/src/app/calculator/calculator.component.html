@@ -1,0 +1,21 @@
+<input type="text" [(ngModel)]="number1" placeholder="number 1">
+<br>
+<br>
+<input type="text" [(ngModel)]="number2" placeholder="number 2">
+<br>
+<br>
+<button class="btn btn-info" value="+" (click)="addition()">+</button>
+&nbsp;&nbsp;
+<button class="btn btn-info" value="-" (click)="subtraction()">-</button>
+&nbsp;&nbsp;
+
+<button class="btn btn-info" value="*" (click)="multiplication()">*</button>
+&nbsp;&nbsp;
+
+<button class="btn btn-info" value="/" (click)="division()">/</button>
+<br>
+<br>
+
+<input type="text" readonly [(ngModel)]="result">
+
+<!--<h1>{{result}}</h1>-->

@@ -34,5 +34,4 @@ export class StockStatusComponent implements OnInit, OnChanges {
     }
 
   }
-
 }

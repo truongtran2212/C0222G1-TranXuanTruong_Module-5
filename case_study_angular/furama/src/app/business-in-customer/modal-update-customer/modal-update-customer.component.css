@@ -1,0 +1,47 @@
+body {
+  font-family: Arial;
+  background-image: url("https://images.unsplash.com/photo-1517384084767-6bc118943770?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
+  background-size: cover;
+}
+
+.bg-menu {
+  background-image: url("http://jadehillsaparesort.com/wp-content/uploads/2017/11/0973a4e54a4db613ef5c.jpg");
+  background-size: cover;
+  height: 700px;
+  width: 100%;
+}
+.bg-modal {
+  background-image: url("https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+
+.container-img:hover .image {
+  opacity: 0.7;
+}
+
+.container-img:hover .middle {
+  opacity: 1;
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #00EB6A;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}

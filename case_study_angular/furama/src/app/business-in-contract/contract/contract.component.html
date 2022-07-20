@@ -15,36 +15,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td class="text-center">1</td>
-          <td>17-07-2022</td>
-          <td>18-07-2022</td>
-          <td>50000</td>
-          <td>100000</td>
-        </tr>
-
-        <tr>
-          <td class="text-center">2</td>
-          <td>17-07-2022</td>
-          <td>19-07-2022</td>
-          <td>20000</td>
-          <td>30000</td>
-        </tr>
-
-        <tr>
-          <td class="text-center">3</td>
-          <td>17-07-2022</td>
-          <td>20-07-2022</td>
-          <td>40000</td>
-          <td>100000</td>
-        </tr>
-
-        <tr>
-          <td class="text-center">4</td>
-          <td>17-07-2022</td>
-          <td>21-07-2022</td>
-          <td>15000</td>
-          <td>20000</td>
+        <tr *ngFor="let contract of contractList; index as i">
+          <td style="text-align: center">{{contract.id}}</td>
+          <td>{{contract.startDay | date : "dd-MM-yyyy"}}</td>
+          <td>{{contract.endDay | date : "dd-MM-yyyy"}}</td>
+          <td>{{contract.moneyDeposit}}</td>
+          <td>{{contract.totalMoney}}</td>
         </tr>
         </tbody>
       </table>

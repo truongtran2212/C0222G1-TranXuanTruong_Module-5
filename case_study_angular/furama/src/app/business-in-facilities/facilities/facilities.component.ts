@@ -63,8 +63,12 @@ export class FacilitiesComponent implements OnInit {
 
   delete() {
     for ( let i = 0; i < this.facilityList.length - 1; i++) {
+      // Không xóa được th cuối cùng
       if (this.facilityList[i].id === this.id) {
         this.facilityList.splice( i, 1);
+      }
+      if ( this.facilityList[this.facilityList.length - 1].id === this.id) {
+        this.facilityList.pop();
       }
     }
   }

@@ -1,93 +1,188 @@
-<div class="modal" id="form-create">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="p-3 bg-modal">
-        <h4 style="text-align: center">Thêm mới dịch vụ</h4>
-        <div class="form-group" >
-          <input class="form-control" type="hidden" id="add-serviceId">
-
+<form [formGroup] ="createForm" novalidate>
+  <div class="modal" id="form-create">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="p-3 bg-modal">
+          <h4 style="text-align: center">Thêm mới dịch vụ</h4>
           <div class="form-group">
-            <label>Loại dịch vụ</label>
-            <select class="form-control w-100" id="add-serviceType" onchange="formCreate()">
-              <option value="1">Villa</option>
-              <option value="2">House</option>
-              <option value="3">Room</option>
-            </select>
+
+            <div class="form-group">
+              <label>Loại dịch vụ</label>
+              <select class="form-control w-100" formControlName="serviceType">
+                <option value="">----- Vui lòng chọn loại dịch vụ -----</option>
+                <option [ngValue]="sv.name" *ngFor="let sv of serviceTypeList">{{sv.name}}</option>
+              </select>
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.serviceType.hasError('required')
+        && (createForm.controls.serviceType.dirty || createForm.controls.serviceType.touched)">
+              Choose service type, pls!!!
+            </div>
+
+            <div class="form-group">
+              <label>Mã dịch vụ</label>
+              <input class="form-control" type="text" formControlName="code">
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.code.hasError('required')
+        && (createForm.controls.code.dirty || createForm.controls.code.touched)">
+              Input code, pls!!!
+            </div>
+
+            <div class="form-group">
+              <label>Tên dịch vụ</label>
+              <input class="form-control" type="text" formControlName="name">
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.name.hasError('required')
+        && (createForm.controls.name.dirty || createForm.controls.name.touched)">
+              Input name service, pls!!!
+            </div>
+
+<!--            <div class="mb-3 text-danger" *ngIf="createForm.controls.name.hasError('pattern')-->
+<!--        && (createForm.controls.name.dirty || createForm.controls.name.touched)">-->
+<!--              Wrong format !!!-->
+<!--            </div>-->
+
+            <div class="form-group">
+              <label>Diện tích sử dụng</label>
+              <input class="form-control" type="text" formControlName="useAble">
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.useAble.hasError('required')
+        && (createForm.controls.useAble.dirty || createForm.controls.useAble.touched)">
+              Input useAble, pls!!!
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.useAble.hasError('min')
+        && (createForm.controls.useAble.dirty || createForm.controls.useAble.touched)">
+              useAble must be greater than 0
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.useAble.hasError('pattern')
+        && (createForm.controls.useAble.dirty || createForm.controls.useAble.touched)">
+              Wrong format!!!
+            </div>
+
+            <div class="form-group">
+              <label>Giá</label>
+              <input class="form-control" type="text" formControlName="cost">
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.cost.hasError('required')
+        && (createForm.controls.cost.dirty || createForm.controls.cost.touched)">
+              Input cost, pls!!!
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.cost.hasError('min')
+        && (createForm.controls.cost.dirty || createForm.controls.cost.touched)">
+              cost must be greater than 0
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.cost.hasError('pattern')
+        && (createForm.controls.cost.dirty || createForm.controls.cost.touched)">
+              Wrong format!!!
+            </div>
+
+            <div class="form-group">
+              <label>Số người tối đa</label>
+              <input class="form-control" type="text" formControlName="maxPeople">
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.maxPeople.hasError('required')
+        && (createForm.controls.maxPeople.dirty || createForm.controls.maxPeople.touched)">
+              Input max people, pls!!!
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.maxPeople.hasError('min')
+        && (createForm.controls.maxPeople.dirty || createForm.controls.maxPeople.touched)">
+              input must be greater than 0
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.maxPeople.hasError('pattern')
+        && (createForm.controls.maxPeople.dirty || createForm.controls.maxPeople.touched)">
+              Wrong format!!!
+            </div>
+
+            <div class="form-group">
+              <label>Tiêu chuẩn phòng</label>
+              <input class="form-control" type="text" formControlName="standardRoom">
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.standardRoom.hasError('required')
+        && (createForm.controls.standardRoom.dirty || createForm.controls.standardRoom.touched)">
+              Input standard room, pls!!!
+            </div>
+
+            <div class="form-group">
+              <label>Mô tả tiện nghi khác</label>
+              <input class="form-control" type="text" formControlName="descriptionOtherConvenience">
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.descriptionOtherConvenience.hasError('required')
+        && (createForm.controls.descriptionOtherConvenience.dirty || createForm.controls.descriptionOtherConvenience.touched)">
+              Input description other convenience, pls!!!
+            </div>
+
+            <div class="form-group">
+              <label>Diện tích hồ bơi</label>
+              <input class="form-control" type="text" formControlName="poolArea">
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.poolArea.hasError('required')
+        && (createForm.controls.poolArea.dirty || createForm.controls.poolArea.touched)">
+              Input pool area , pls!!!
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.poolArea.hasError('min')
+        && (createForm.controls.poolArea.dirty || createForm.controls.poolArea.touched)">
+              input must be greater than 0
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.poolArea.hasError('pattern')
+        && (createForm.controls.poolArea.dirty || createForm.controls.poolArea.touched)">
+              Wrong format!!!
+            </div>
+
+            <div class="form-group">
+              <label>Số tầng</label>
+              <input class="form-control" type="text" formControlName="numberOfFloors">
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.numberOfFloors.hasError('required')
+        && (createForm.controls.numberOfFloors.dirty || createForm.controls.numberOfFloors.touched)">
+              Input number of floors , pls!!!
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.numberOfFloors.hasError('min')
+        && (createForm.controls.numberOfFloors.dirty || createForm.controls.numberOfFloors.touched)">
+              input must be greater than 0
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.numberOfFloors.hasError('pattern')
+        && (createForm.controls.numberOfFloors.dirty || createForm.controls.numberOfFloors.touched)">
+              Wrong format!!!
+            </div>
+
+            <div class="form-group">
+              <label>Kiểu thuê</label>
+              <select class="form-control w-100" formControlName="rentType">
+                <option value="">----- Vui lòng chọn kiểu thuê -----</option>
+                <option [ngValue]="rt.name" *ngFor="let rt of rentTypeList">{{rt.name}}</option>
+              </select>
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.rentType.hasError('required')
+        && (createForm.controls.rentType.dirty || createForm.controls.rentType.touched)">
+              Choose rent type , pls!!!
+            </div>
+
+            <button class="btn btn-dark" type="submit" (click)="onSubmit()" [disabled]="createForm.invalid" data-dismiss="modal">Add new</button>
+            &nbsp;
+            <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>
           </div>
-
-          <div class="form-group">
-            <label>Mã dịch vụ</label>
-            <input class="form-control" type="text" id="add-serviceCode">
-
-          </div>
-
-          <div class="form-group">
-            <label>Tên dịch vụ</label>
-            <input class="form-control" type="text" id="add-serviceName">
-
-
-          </div>
-
-          <div class="form-group">
-            <label>Diện tích sử dụng</label>
-            <input class="form-control" type="text" id="add-serviceArea">
-
-
-          </div>
-
-          <div class="form-group">
-            <label>Giá</label>
-            <input class="form-control" type="text" id="add-serviceCost">
-
-
-          </div>
-
-          <div class="form-group">
-            <label>Số người tối đa</label>
-            <input class="form-control" type="text" id="add-serviceMaxPeople">
-
-
-          </div>
-
-          <div class="form-group" id="add-standardRoom">
-            <label>Tiêu chuẩn phòng</label>
-            <input class="form-control" type="text" >
-          </div>
-
-          <div class="form-group" id="add-descriptionOtherConvenience">
-            <label>Mô tả tiện nghi khác</label>
-            <input class="form-control" type="text" >
-
-
-          </div>
-
-          <div class="form-group" id="add-poolArea">
-            <label>Diện tích hồ bơi</label>
-            <input class="form-control" type="text" >
-
-          </div>
-
-          <div class="form-group" id="add-numberOfFloors">
-            <label>Số tầng</label>
-            <input class="form-control" type="text">
-
-
-          </div>
-
-          <div class="form-group">
-            <label>Kiểu thuê</label>
-            <select class="form-control w-100" id="add-rentType">
-              <option value="1">Thuê theo năm</option>
-              <option value="2">Thuê theo tháng</option>
-              <option value="3">Thuê theo ngày</option>
-              <option value="4">Thuê theo giờ</option>
-            </select>
-          </div>
-          <button class="btn btn-dark" type="submit">Add new</button>
-          &nbsp;
-          <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>
         </div>
       </div>
     </div>
   </div>
-</div>
+</form>

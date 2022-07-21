@@ -7,10 +7,10 @@ import {HomePageComponent} from './home-page/home-page.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent},
-  { path: 'list-customer', component: CustomerComponent},
-  { path: 'list-facilities', component: FacilitiesComponent},
-  { path: 'list-contract', component: ContractComponent}
+  { path: '', component: HomePageComponent,data: {title: 'Furama'}},
+  { path: 'list-customer', component: CustomerComponent, data : {title: "Customer List"}},
+  { path: 'list-facilities', component: FacilitiesComponent, data : {title: "Facilities List"}},
+  { path: 'list-contract', component: ContractComponent, data : {title: "Contract List"}}
 
 ];
 

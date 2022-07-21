@@ -195,7 +195,8 @@
     <div>
         <button style="margin-right: 30px; font-size: 1.5rem"
                 class="createFacilities btn btn-light" data-toggle="modal"
-                data-target="#form-create">Create</button>
+                data-target="#form-create">Create
+        </button>
     </div>
 </nav>
 
@@ -206,9 +207,8 @@
 </div>
 
 
-
 <br>
-                        <!-- card-->
+<!-- card-->
 <div class="container">
     <div class="card-deck">
         <div class="card container-img">
@@ -301,7 +301,7 @@
 
 <br>
 
-                                <!-- card-->
+<!-- card-->
 <div class="container">
     <div class="card-deck">
         <div class="card container-img">
@@ -530,7 +530,7 @@
     </div>
 </div>
 
-                            <!--       modal update-->
+<!--       modal update-->
 
 <div class="modal" id="form-update">
     <div class="modal-dialog">
@@ -585,19 +585,19 @@
 
                     <div class="form-group" id="standardRoom">
                         <label>Tiêu chuẩn phòng</label>
-                        <input class="form-control" type="text" >
+                        <input class="form-control" type="text">
                     </div>
 
                     <div class="form-group" id="descriptionOtherConvenience">
                         <label>Mô tả tiện nghi khác</label>
-                        <input class="form-control" type="text" >
+                        <input class="form-control" type="text">
 
 
                     </div>
 
                     <div class="form-group" id="poolArea">
                         <label>Diện tích hồ bơi</label>
-                        <input class="form-control" type="text" >
+                        <input class="form-control" type="text">
 
                     </div>
 
@@ -626,7 +626,7 @@
     </div>
 </div>
 
-                    <!--modal create-->
+<!--modal create-->
 
 <div class="modal" id="form-create">
     <div class="modal-dialog">
@@ -681,19 +681,19 @@
 
                     <div class="form-group" id="add-standardRoom">
                         <label>Tiêu chuẩn phòng</label>
-                        <input class="form-control" type="text" >
+                        <input class="form-control" type="text">
                     </div>
 
                     <div class="form-group" id="add-descriptionOtherConvenience">
                         <label>Mô tả tiện nghi khác</label>
-                        <input class="form-control" type="text" >
+                        <input class="form-control" type="text">
 
 
                     </div>
 
                     <div class="form-group" id="add-poolArea">
                         <label>Diện tích hồ bơi</label>
-                        <input class="form-control" type="text" >
+                        <input class="form-control" type="text">
 
                     </div>
 
@@ -739,45 +739,45 @@
         var id = document.getElementById("serviceType").value;
 
         // So sánh bằng kiểu dữ liệu String
-        if(id === '1'){ // Villa
-            document.getElementById("standardRoom").style.display = "block"
-            document.getElementById("descriptionOtherConvenience").style.display = "block"
-            document.getElementById("poolArea").style.display = "block"
-            document.getElementById("numberOfFloors").style.display = "block"
-        }else if(id === '2'){ // House
-            document.getElementById("standardRoom").style.display = "block"
-            document.getElementById("descriptionOtherConvenience").style.display = "block"
-            document.getElementById("poolArea").style.display = "none"
-            document.getElementById("numberOfFloors").style.display = "block"
-        }else { // Room
-            document.getElementById("standardRoom").style.display = "none"
-            document.getElementById("descriptionOtherConvenience").style.display = "none"
-            document.getElementById("poolArea").style.display = "none"
-            document.getElementById("numberOfFloors").style.display = "none"
+        if (id === '1') { // Villa
+            document.getElementById("standardRoom").style.display = "block";
+            document.getElementById("descriptionOtherConvenience").style.display = "block";
+            document.getElementById("poolArea").style.display = "block";
+            document.getElementById("numberOfFloors").style.display = "block";
+        } else if (id === '2') { // House
+            document.getElementById("standardRoom").style.display = "block";
+            document.getElementById("descriptionOtherConvenience").style.display = "block";
+            document.getElementById("poolArea").style.display = "none";
+            document.getElementById("numberOfFloors").style.display = "block";
+        } else { // Room
+            document.getElementById("standardRoom").style.display = "none";
+            document.getElementById("descriptionOtherConvenience").style.display = "none";
+            document.getElementById("poolArea").style.display = "none";
+            document.getElementById("numberOfFloors").style.display = "none";
         }
     }
 
-                    // script create
+    // script create
 
     function formCreate() {
         var id = document.getElementById("add-serviceType").value;
 
         // So sánh bằng kiểu dữ liệu String
-        if(id === '1'){ // Villa
-            document.getElementById("add-standardRoom").style.display = "block"
-            document.getElementById("add-descriptionOtherConvenience").style.display = "block"
-            document.getElementById("add-poolArea").style.display = "block"
-            document.getElementById("add-numberOfFloors").style.display = "block"
-        }else if(id === '2'){ // House
-            document.getElementById("add-standardRoom").style.display = "block"
-            document.getElementById("add-descriptionOtherConvenience").style.display = "block"
-            document.getElementById("add-poolArea").style.display = "none"
-            document.getElementById("add-numberOfFloors").style.display = "block"
-        }else { // Room
-            document.getElementById("add-standardRoom").style.display = "none"
-            document.getElementById("add-descriptionOtherConvenience").style.display = "none"
-            document.getElementById("add-poolArea").style.display = "none"
-            document.getElementById("add-numberOfFloors").style.display = "none"
+        if (id === '1') { // Villa
+            document.getElementById("add-standardRoom").style.display = "block";
+            document.getElementById("add-descriptionOtherConvenience").style.display = "block";
+            document.getElementById("add-poolArea").style.display = "block";
+            document.getElementById("add-numberOfFloors").style.display = "block";
+        } else if (id === '2') { // House
+            document.getElementById("add-standardRoom").style.display = "block";
+            document.getElementById("add-descriptionOtherConvenience").style.display = "block";
+            document.getElementById("add-poolArea").style.display = "none";
+            document.getElementById("add-numberOfFloors").style.display = "block";
+        } else { // Room
+            document.getElementById("add-standardRoom").style.display = "none";
+            document.getElementById("add-descriptionOtherConvenience").style.display = "none";
+            document.getElementById("add-poolArea").style.display = "none";
+            document.getElementById("add-numberOfFloors").style.display = "none";
         }
     }
 

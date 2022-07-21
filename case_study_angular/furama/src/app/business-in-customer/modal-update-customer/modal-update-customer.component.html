@@ -1,74 +1,133 @@
-<div class="modal" id="form-update">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="p-3 bg-modal">
-        <h4 style="text-align: center">Chỉnh sửa thông tin khách hàng</h4>
-        <p class="form-control" id="id">1</p>
+<form [formGroup]="customerFormUpdate" novalidate>
+  <div class="modal " id="form-update">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="p-3 bg-modal">
+          <h4 style="text-align: center">Chỉnh sửa thông tin khách hàng</h4>
 
-        <div class="form-group">
-          <label>Mã khách hàng</label>
-          <p class="form-control" id="customerCode">KH-1111</p>
+          <div class="form-group">
+            <label>Mã khách hàng</label>
+            <input class="form-control" type="text" formControlName="code">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormUpdate.controls.code.hasError('required')
+        && (customerFormUpdate.controls.code.dirty || customerFormUpdate.controls.code.touched)">
+            Input code, pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormUpdate.controls.code.hasError('pattern')
+        && (customerFormUpdate.controls.code.dirty || customerFormUpdate.controls.code.touched)">
+            Wrong format !!!
+          </div>
+
+          <div class="form-group">
+            <label>Tên khách hàng</label>
+            <input class="form-control" type="text" formControlName="name">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormUpdate.controls.name.hasError('required')
+        && (customerFormUpdate.controls.name.dirty || customerFormUpdate.controls.name.touched)">
+            Input name, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Ngày sinh</label>
+            <input class="form-control" type="date" formControlName="dayOfBirth">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormUpdate.controls.dayOfBirth.hasError('required')
+        && (customerFormUpdate.controls.dayOfBirth.dirty || customerFormUpdate.controls.dayOfBirth.touched)">
+            Input day of birth, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Giới tính</label>
+            <select formControlName="gender" class="form-control w-100">
+              <option value="">----- Vui lòng chọn -----</option>
+              <option value="0">Nam</option>
+              <option value="1">Nữ</option>
+              <option value="2">Khác</option>
+            </select>
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormUpdate.controls.gender.hasError('required')
+        && (customerFormUpdate.controls.gender.dirty || customerFormUpdate.controls.gender.touched)">
+            Choose gender, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Căn cước công dân</label>
+            <input class="form-control" type="text" formControlName="idCard" id="add-customerIdCard">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormUpdate.controls.idCard.hasError('required')
+        && (customerFormUpdate.controls.idCard.dirty || customerFormUpdate.controls.idCard.touched)">
+            Input Id Card, pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormUpdate.controls.idCard.hasError('pattern')
+        && (customerFormUpdate.controls.idCard.dirty || customerFormUpdate.controls.idCard.touched)">
+            Wrong format !!!
+          </div>
+
+          <div class="form-group">
+            <label>Số điện thoại</label>
+            <input class="form-control" type="text" formControlName="phone">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormUpdate.controls.phone.hasError('required')
+        && (customerFormUpdate.controls.phone.dirty || customerFormUpdate.controls.phone.touched)">
+            Input phone number, pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormUpdate.controls.phone.hasError('pattern')
+        && (customerFormUpdate.controls.phone.dirty || customerFormUpdate.controls.phone.touched)">
+            Wrong format!!!
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" type="text" formControlName="email">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormUpdate.controls.email.hasError('required')
+        && (customerFormUpdate.controls.email.dirty || customerFormUpdate.controls.email.touched)">
+            Input email, pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormUpdate.controls.email.hasError('email')
+        && (customerFormUpdate.controls.email.dirty || customerFormUpdate.controls.email.touched)">
+            Wrong format !!!
+          </div>
+
+          <div class="form-group">
+            <label>Địa chỉ</label>
+            <input class="form-control" type="text" formControlName="address">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormUpdate.controls.address.hasError('required')
+        && (customerFormUpdate.controls.address.dirty || customerFormUpdate.controls.address.touched)">
+            Input address, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Kiểu khách hàng</label>
+            <select class="form-control w-100" formControlName="typeCustomer">
+              <option value="">----- Vui lòng chọn -----</option>
+              <option [ngValue]="tc.name" *ngFor="let tc of typeCustomerList ">{{tc.name}}</option>
+            </select>
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormUpdate.controls.typeCustomer.hasError('required')
+        && (customerFormUpdate.controls.typeCustomer.dirty || customerFormUpdate.controls.typeCustomer.touched)">
+            Choose type customer, pls!!!
+          </div>
+
+          <button class="btn btn-dark" type="submit" (click)="onSubmit()" [disabled]="customerFormUpdate.invalid" data-dismiss="modal">Update</button>
+          &nbsp;
+          <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>
         </div>
-
-        <div class="form-group">
-          <label>Tên khách hàng</label>
-          <input class="form-control" type="text" id="customerName">
-
-        </div>
-
-        <div class="form-group">
-          <label>Ngày sinh</label>
-          <input class="form-control" type="date" id="customerBirthday">
-
-        </div>
-
-        <div class="form-group">
-          <label>Giới tính</label>
-          <select id="customerGender" class="form-control w-100">
-
-            <option value="0">Nam</option>
-            <option value="1">Nữ</option>
-            <option value="2">Khác</option>
-
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Căn cước công dân</label>
-          <input class="form-control" type="text" id="customerIdCard">
-
-        </div>
-
-        <div class="form-group">
-          <label>Số điện thoại</label>
-          <input class="form-control" type="text" id="customerPhone">
-
-        </div>
-
-        <div class="form-group">
-          <label>Email</label>
-          <input class="form-control" type="text" id="customerEmail">
-
-        </div>
-
-        <div class="form-group">
-          <label>Địa chỉ</label>
-          <input class="form-control" type="text" id="customerAddress">
-        </div>
-
-        <div class="form-group">
-          <label>Kiểu khách hàng</label>
-          <select class="form-control w-100" id="customerTypeId">
-            <option value="1">Diamond</option>
-            <option value="2">Platinum</option>
-            <option value="3">Gold</option>
-            <option value="4">Silver</option>
-            <option value="5">Member</option>
-          </select>
-        </div>
-        <button class="btn btn-dark" type="submit">Update</button>
-        &nbsp;
-        <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>
-</div>
+</form>

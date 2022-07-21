@@ -1,35 +1,75 @@
-<div class="modal" id="form-create">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="p-3 bg-modal">
-        <h4 style="text-align: center">Thêm hợp đồng</h4>
+<form [formGroup]="createContractForm" novalidate>
+  <div class="modal" id="form-create">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="p-3 bg-modal">
+          <h4 style="text-align: center">Thêm hợp đồng</h4>
 
-        <div class="form-group">
-          <label>Ngày bắt đầu</label>
-          <input class="form-control" type="date" id="startDay">
+          <div formGroupName="day">
+            <div class="form-group">
+              <label>Ngày bắt đầu</label>
+              <input class="form-control" type="date" formControlName="startDay">
+            </div>
+
+            <div class="mb-3 text-danger"
+                 *ngIf="getStartDay().invalid && (getStartDay().dirty || getStartDay().touched) && getStartDay().errors.required">
+              Input start day, pls!!!
+            </div>
+
+            <div class="form-group">
+              <label>Ngày kết thúc</label>
+              <input class="form-control" type="date" formControlName="endDay">
+            </div>
+
+            <div class="mb-3 text-danger"
+                 *ngIf="getEndDay().invalid && (getEndDay().dirty || getEndDay().touched) && getEndDay().errors.required">
+              Input end day, pls!!!
+            </div>
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="createContractForm.get('day').hasError('error')
+                && (createContractForm.get('day').dirty || createContractForm.get('day').touched)">
+            Ngày kết thúc phải sau ngày bắt đầu
+          </div>
+
+          <div class="form-group">
+            <label>Số tiền cọc trước</label>
+            <input class="form-control" type="text" formControlName="moneyDeposit">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="createContractForm.controls.moneyDeposit.hasError('required')
+                && (createContractForm.controls.moneyDeposit.dirty || createContractForm.controls.moneyDeposit.touched)">
+            Input money deposit, pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="createContractForm.controls.moneyDeposit.hasError('min')
+                && (createContractForm.controls.moneyDeposit.dirty || createContractForm.controls.moneyDeposit.touched)">
+            money deposit must be greater than 0
+          </div>
+
+
+          <div class="form-group">
+            <label>Tổng số tiền thanh toán</label>
+            <input class="form-control" type="text" formControlName="totalMoney">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="createContractForm.controls.totalMoney.hasError('required')
+                && (createContractForm.controls.totalMoney.dirty || createContractForm.controls.totalMoney.touched)">
+            Input total money deposit, pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="createContractForm.controls.totalMoney.hasError('min')
+                && (createContractForm.controls.totalMoney.dirty || createContractForm.controls.totalMoney.touched)">
+            total money must be greater than 0
+          </div>
+
+          <button class="btn btn-dark" type="submit" (click)="onSubmit()" [disabled]="createContractForm.invalid"
+                  data-dismiss="modal">Add new
+          </button>
+          &nbsp;
+          <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>
         </div>
-
-        <div class="form-group">
-          <label>Ngày kết thúc</label>
-          <input class="form-control" type="date" id="endDay">
-
-        </div>
-
-        <div class="form-group">
-          <label>Số tiền cọc trước</label>
-          <input class="form-control" type="text" id="deposit">
-
-        </div>
-
-        <div class="form-group">
-          <label>Tổng số tiền thanh toán</label>
-          <input class="form-control" type="text" id="total-money">
-        </div>
-
-        <button class="btn btn-dark" type="submit">Add new</button>
-        &nbsp;
-        <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>
-</div>
+</form>

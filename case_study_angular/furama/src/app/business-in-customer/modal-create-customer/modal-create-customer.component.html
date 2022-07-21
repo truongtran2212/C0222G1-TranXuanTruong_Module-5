@@ -1,73 +1,133 @@
-<div class="modal " id="form-create">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="p-3 bg-modal">
-        <h4 style="text-align: center">Thêm thông tin khách hàng</h4>
+<form [formGroup]="customerFormCreate" novalidate>
+  <div class="modal " id="form-create">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="p-3 bg-modal">
+          <h4 style="text-align: center">Thêm thông tin khách hàng</h4>
 
-        <div class="form-group">
-          <label>Mã khách hàng</label>
-          <input class="form-control" type="text" id="add-customerCode">
+          <div class="form-group">
+            <label>Mã khách hàng</label>
+            <input class="form-control" type="text" formControlName="code">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormCreate.controls.code.hasError('required')
+        && (customerFormCreate.controls.code.dirty || customerFormCreate.controls.code.touched)">
+            Input code, pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormCreate.controls.code.hasError('pattern')
+        && (customerFormCreate.controls.code.dirty || customerFormCreate.controls.code.touched)">
+            Wrong format !!!
+          </div>
+
+          <div class="form-group">
+            <label>Tên khách hàng</label>
+            <input class="form-control" type="text" formControlName="name">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormCreate.controls.name.hasError('required')
+        && (customerFormCreate.controls.name.dirty || customerFormCreate.controls.name.touched)">
+            Input name, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Ngày sinh</label>
+            <input class="form-control" type="date" formControlName="dayOfBirth">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormCreate.controls.dayOfBirth.hasError('required')
+        && (customerFormCreate.controls.dayOfBirth.dirty || customerFormCreate.controls.dayOfBirth.touched)">
+            Input day of birth, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Giới tính</label>
+            <select formControlName="gender" class="form-control w-100">
+              <option value="">----- Vui lòng chọn -----</option>
+              <option value="0">Nam</option>
+              <option value="1">Nữ</option>
+              <option value="2">Khác</option>
+            </select>
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormCreate.controls.gender.hasError('required')
+        && (customerFormCreate.controls.gender.dirty || customerFormCreate.controls.gender.touched)">
+            Choose gender, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Căn cước công dân</label>
+            <input class="form-control" type="text" formControlName="idCard" id="add-customerIdCard">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormCreate.controls.idCard.hasError('required')
+        && (customerFormCreate.controls.idCard.dirty || customerFormCreate.controls.idCard.touched)">
+            Input Id Card, pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormCreate.controls.idCard.hasError('pattern')
+        && (customerFormCreate.controls.idCard.dirty || customerFormCreate.controls.idCard.touched)">
+            Wrong format !!!
+          </div>
+
+          <div class="form-group">
+            <label>Số điện thoại</label>
+            <input class="form-control" type="text" formControlName="phone">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormCreate.controls.phone.hasError('required')
+        && (customerFormCreate.controls.phone.dirty || customerFormCreate.controls.phone.touched)">
+            Input phone number, pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormCreate.controls.phone.hasError('pattern')
+        && (customerFormCreate.controls.phone.dirty || customerFormCreate.controls.phone.touched)">
+            Wrong format!!!
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" type="text" formControlName="email">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormCreate.controls.email.hasError('required')
+        && (customerFormCreate.controls.email.dirty || customerFormCreate.controls.email.touched)">
+            Input email, pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormCreate.controls.email.hasError('email')
+        && (customerFormCreate.controls.email.dirty || customerFormCreate.controls.email.touched)">
+            Wrong format !!!
+          </div>
+
+          <div class="form-group">
+            <label>Địa chỉ</label>
+            <input class="form-control" type="text" formControlName="address">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormCreate.controls.address.hasError('required')
+        && (customerFormCreate.controls.address.dirty || customerFormCreate.controls.address.touched)">
+            Input address, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Kiểu khách hàng</label>
+            <select class="form-control w-100" formControlName="typeCustomer">
+              <option value="">----- Vui lòng chọn -----</option>
+              <option [ngValue]="tc.name" *ngFor="let tc of typeCustomerList ">{{tc.name}}</option>
+            </select>
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="customerFormCreate.controls.typeCustomer.hasError('required')
+        && (customerFormCreate.controls.typeCustomer.dirty || customerFormCreate.controls.typeCustomer.touched)">
+            Choose type customer, pls!!!
+          </div>
+
+          <button class="btn btn-dark" type="submit" (click)="onSubmit()" [disabled]="customerFormCreate.invalid" data-dismiss="modal">Add new</button>
+          &nbsp;
+          <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>
         </div>
-
-        <div class="form-group">
-          <label>Tên khách hàng</label>
-          <input class="form-control" type="text" id="add-customerName">
-
-        </div>
-
-        <div class="form-group">
-          <label>Ngày sinh</label>
-          <input class="form-control" type="date" id="add-customerBirthday">
-
-        </div>
-
-        <div class="form-group">
-          <label>Giới tính</label>
-          <select id="add-customerGender" class="form-control w-100">
-
-            <option value="0">Nam</option>
-            <option value="1">Nữ</option>
-            <option value="2">Khác</option>
-
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Căn cước công dân</label>
-          <input class="form-control" type="text" id="add-customerIdCard">
-
-        </div>
-
-        <div class="form-group">
-          <label>Số điện thoại</label>
-          <input class="form-control" type="text" id="add-customerPhone">
-
-        </div>
-
-        <div class="form-group">
-          <label>Email</label>
-          <input class="form-control" type="text" id="add-customerEmail">
-
-        </div>
-
-        <div class="form-group">
-          <label>Địa chỉ</label>
-          <input class="form-control" type="text" id="add-customerAddress">
-        </div>
-
-        <div class="form-group">
-          <label>Kiểu khách hàng</label>
-          <select class="form-control w-100" id="add-customerTypeId">
-            <option value="1">Diamond</option>
-            <option value="2">Platinum</option>
-            <option value="3">Gold</option>
-            <option value="4">Silver</option>
-            <option value="5">Member</option>
-          </select>
-        </div>
-        <button class="btn btn-dark" type="submit">Add new</button>
-        &nbsp;
-        <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>
-</div>
+</form>

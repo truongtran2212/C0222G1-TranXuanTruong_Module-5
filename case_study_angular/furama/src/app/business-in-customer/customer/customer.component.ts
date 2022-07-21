@@ -17,7 +17,10 @@ export class CustomerComponent implements OnInit {
       name: 'Trường',
       gender: 1,
       idCard: '123123',
+      dayOfBirth: '2022-12-22',
       phoneNumber: '23412546',
+      email: 'truongtran@gmail.com',
+
       address: '12 Trần Phú',
       typeCustomer: 1
     },
@@ -27,7 +30,9 @@ export class CustomerComponent implements OnInit {
       name: 'Khoa',
       gender: 1,
       idCard: '123123',
+      dayOfBirth: '2022-12-22',
       phoneNumber: '23412546',
+      email: 'truongtran@gmail.com',
       address: '12 Trần Phú',
       typeCustomer: 2
     },
@@ -37,7 +42,9 @@ export class CustomerComponent implements OnInit {
       name: 'Tùng',
       gender: 1,
       idCard: '123123',
+      dayOfBirth: '2022-12-22',
       phoneNumber: '23412546',
+      email: 'truongtran@gmail.com',
       address: '12 Trần Phú',
       typeCustomer: 3
     },
@@ -47,7 +54,9 @@ export class CustomerComponent implements OnInit {
       name: 'Thảo',
       gender: 0,
       idCard: '123123',
+      dayOfBirth: '2022-12-22',
       phoneNumber: '23412546',
+      email: 'truongtran@gmail.com',
       address: '12 Trần Phú',
       typeCustomer: 4
     }
@@ -57,6 +66,8 @@ export class CustomerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
+
 
 }

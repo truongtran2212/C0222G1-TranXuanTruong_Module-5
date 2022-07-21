@@ -3,6 +3,7 @@
     font-family: Arial;
     background-image: url("https://images.unsplash.com/photo-1517384084767-6bc118943770?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
     background-size: cover;
+    height: 100%;
   }
 
   .text {
@@ -63,16 +64,14 @@
   <h1 class="text" style="text-align: center; font-size: 3.5rem;padding-top: 200px">
     FACILITIES</h1>
 </div>
-
-<br>
 <!-- card-->
+
 <div *ngFor="let facilities of facilityList">
   <div class="container">
-
-    <div class="card-deck mt-4 ml-4" style="width: 32%; float: left">
+    <div class="card-deck mt-4 ml-4 mb-4" style="width: 32%; float: left">
       <div class="card container-img">
         <img [src]="facilities.url"
-             class="card-img-top ">
+             class="card-img-top " alt="">
 
         <div class="middle image ">
           <button class="book">Đặt phòng</button>
@@ -104,7 +103,194 @@
     </div>
   </div>
 </div>
-<br>
+</body>
+<!--<div class="container">-->
+<!--  <div class="card-deck">-->
+<!--    <div class="card container-img">-->
+<!--      <img-->
+<!--        src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg"-->
+<!--        class="card-img-top " alt="...">-->
+
+<!--      <div class="middle image ">-->
+<!--        <button class="book">Đặt phòng</button>-->
+<!--      </div>-->
+
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-text">PHÒNG SUITE HƯỚNG BIỂN</h5>-->
+<!--        <p class="card-text"><small class="text-muted">Diện tích phòng: 85.8 m<sup>2</sup></small></p>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        &lt;!&ndash;                delete&ndash;&gt;-->
+<!--        <a href="#"-->
+<!--           onclick="employeeIndex(id, 'name')"-->
+<!--           data-toggle="modal"-->
+<!--           data-target="#delete">-->
+<!--          <button style="float: right" class="btn btn-light">-->
+<!--            <i style=" font-size: 1.5rem" class="fa-solid fa-trash-can btn text-danger"></i>-->
+<!--          </button>-->
+<!--        </a>-->
+
+<!--        &lt;!&ndash;                update&ndash;&gt;-->
+<!--        <button style="float: right;" class="updateEmployee btn btn-light" data-toggle="modal"-->
+<!--                data-target="#form-update"><i style="font-size: 1.5rem"-->
+<!--                                              class="fa-solid fa-pen-to-square btn text-info"></i></button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="card container-img">-->
+<!--      <img-->
+<!--        src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-370x239.jpg"-->
+<!--        class="card-img-top " alt="...">-->
+<!--      <div class="middle image">-->
+<!--        <button class="book">Đặt phòng</button>-->
+<!--      </div>-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">PHÒNG STUDIO SUITE HƯỚNG BIỂN</h5>-->
+<!--        <p class="card-text"><small class="text-muted">Diện tích phòng: 40.1 m<sup>2</sup></small></p>-->
+<!--      </div>-->
+
+<!--      <div>-->
+<!--        &lt;!&ndash;                delete&ndash;&gt;-->
+<!--        <a href="#"-->
+<!--           onclick="employeeIndex(id, 'name')"-->
+<!--           data-toggle="modal"-->
+<!--           data-target="#delete">-->
+<!--          <button style="float: right" class="btn btn-light">-->
+<!--            <i style=" font-size: 1.5rem" class="fa-solid fa-trash-can btn text-danger"></i>-->
+<!--          </button>-->
+<!--        </a>-->
+
+<!--        &lt;!&ndash;                update&ndash;&gt;-->
+<!--        <button style="float: right;" class="updateEmployee btn btn-light" data-toggle="modal"-->
+<!--                data-target="#form-update"><i style="font-size: 1.5rem"-->
+<!--                                              class="fa-solid fa-pen-to-square btn text-info"></i></button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="card container-img">-->
+<!--      <img-->
+<!--        src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Deluxe-double-bed-F-370x239.jpg"-->
+<!--        class="card-img-top image" alt="...">-->
+<!--      <div class="middle image">-->
+<!--        <button class="book">Đặt phòng</button>-->
+<!--      </div>-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">PHÒNG DELUXE HƯỚNG BIỂN</h5>-->
+<!--        <p class="card-text"><small class="text-muted">Diện tích phòng: 43.7 m<sup>2</sup></small></p>-->
+<!--      </div>-->
+
+<!--      <div>-->
+<!--        &lt;!&ndash;                delete&ndash;&gt;-->
+<!--        <a href="#"-->
+<!--           onclick="employeeIndex(id, 'name')"-->
+<!--           data-toggle="modal"-->
+<!--           data-target="#delete">-->
+<!--          <button style="float: right" class="btn btn-light">-->
+<!--            <i style=" font-size: 1.5rem" class="fa-solid fa-trash-can btn text-danger"></i>-->
+<!--          </button>-->
+<!--        </a>-->
+
+<!--        &lt;!&ndash;                update&ndash;&gt;-->
+<!--        <button style="float: right;" class="updateEmployee btn btn-light" data-toggle="modal"-->
+<!--                data-target="#form-update"><i style="font-size: 1.5rem"-->
+<!--                                              class="fa-solid fa-pen-to-square btn text-info"></i></button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<br>-->
+
+<!--&lt;!&ndash; card&ndash;&gt;-->
+<!--<div class="container">-->
+<!--  <div class="card-deck">-->
+<!--    <div class="card container-img">-->
+<!--      <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Presidential-Suite-F-370x239.jpg"-->
+<!--           class="card-img-top" alt="...">-->
+<!--      <div class="middle image">-->
+<!--        <button class="book">Đặt phòng</button>-->
+<!--      </div>-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">PHÒNG SUPERIOR HƯỚNG HỒ</h5>-->
+<!--        <p class="card-text"><small class="text-muted">Diện tích phòng: 40.1 m<sup>2</sup></small></p>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        &lt;!&ndash;                delete&ndash;&gt;-->
+<!--        <a href="#"-->
+<!--           onclick="employeeIndex(id, 'name')"-->
+<!--           data-toggle="modal"-->
+<!--           data-target="#delete">-->
+<!--          <button style="float: right" class="btn btn-light">-->
+<!--            <i style=" font-size: 1.5rem" class="fa-solid fa-trash-can btn text-danger"></i>-->
+<!--          </button>-->
+<!--        </a>-->
+
+<!--        &lt;!&ndash;                update&ndash;&gt;-->
+<!--        <button style="float: right;" class="updateEmployee btn btn-light" data-toggle="modal"-->
+<!--                data-target="#form-update"><i style="font-size: 1.5rem"-->
+<!--                                              class="fa-solid fa-pen-to-square btn text-info"></i></button>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--    <div class="card container-img">-->
+<!--      <img-->
+<!--        src="https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-_Exterior-1-F-370x239.jpg"-->
+<!--        class="card-img-top" alt="...">-->
+<!--      <div class="middle image">-->
+<!--        <button class="book">Đặt phòng</button>-->
+<!--      </div>-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">BIỆT THỰ HƯỚNG BIỂN CÓ HỒ BƠI RIÊNG</h5>-->
+<!--        <p class="card-text"><small class="text-muted">Diện tích phòng: 900 m<sup>2</sup></small></p>-->
+<!--      </div>-->
+
+<!--      <div>-->
+<!--        &lt;!&ndash;                delete&ndash;&gt;-->
+<!--        <a href="#"-->
+<!--           onclick="employeeIndex(id, 'name')"-->
+<!--           data-toggle="modal"-->
+<!--           data-target="#delete">-->
+<!--          <button style="float: right" class="btn btn-light">-->
+<!--            <i style=" font-size: 1.5rem" class="fa-solid fa-trash-can btn text-danger"></i>-->
+<!--          </button>-->
+<!--        </a>-->
+
+<!--        &lt;!&ndash;                update&ndash;&gt;-->
+<!--        <button style="float: right;" class="updateEmployee btn btn-light" data-toggle="modal"-->
+<!--                data-target="#form-update"><i style="font-size: 1.5rem"-->
+<!--                                              class="fa-solid fa-pen-to-square btn text-info"></i></button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="card container-img">-->
+<!--      <img-->
+<!--        src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Garden-Superior-TwinBed-1-F-370x239.jpg"-->
+<!--        class="card-img-top" alt="...">-->
+<!--      <div class="middle image">-->
+<!--        <button class="book">Đặt phòng</button>-->
+<!--      </div>-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">PHÒNG SUPERIOR HƯỚNG VƯỜN</h5>-->
+<!--        <p class="card-text"><small class="text-muted">Diện tích phòng: 40.1 m<sup>2</sup></small></p>-->
+<!--      </div>-->
+
+<!--      <div>-->
+<!--        &lt;!&ndash;                delete&ndash;&gt;-->
+<!--        <a href="#"-->
+<!--           onclick="employeeIndex(id, 'name')"-->
+<!--           data-toggle="modal"-->
+<!--           data-target="#delete">-->
+<!--          <button style="float: right" class="btn btn-light">-->
+<!--            <i style=" font-size: 1.5rem" class="fa-solid fa-trash-can btn text-danger"></i>-->
+<!--          </button>-->
+<!--        </a>-->
+
+<!--        &lt;!&ndash;                update&ndash;&gt;-->
+<!--        <button style="float: right;" class="updateEmployee btn btn-light" data-toggle="modal"-->
+<!--                data-target="#form-update"><i style="font-size: 1.5rem"-->
+<!--                                              class="fa-solid fa-pen-to-square btn text-info"></i></button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
 <!--  modal update-->
 <app-modal-update-facilities></app-modal-update-facilities>
 
@@ -128,5 +314,4 @@
     </div>
   </div>
 </div>
-<br>
-</body>
+

@@ -2,21 +2,43 @@ body {
   font-family: Arial;
   background-image: url("https://images.unsplash.com/photo-1517384084767-6bc118943770?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
   background-size: cover;
+  height: 100%;
+}
+
+.text {
+  color: #fff;
+  position: absolute;
+  top: 230px;
+  left: 40%;
 }
 
 .bg-menu {
-  background-image: url("http://jadehillsaparesort.com/wp-content/uploads/2017/11/0973a4e54a4db613ef5c.jpg");
+  background-image: url("https://file4.batdongsan.com.vn/2021/06/17/JGcIp0rf/20210617172417-2f9e.jpg");
   background-size: cover;
-  height: 700px;
+  height: 750px;
   width: 100%;
-}
-.bg-modal {
-  background-image: url("https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80");
-  background-size: cover;
-  height: 100%;
-  width: 100%;
+  margin-bottom: 0;
 }
 
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
 
 .container-img:hover .image {
   opacity: 0.7;
@@ -24,6 +46,13 @@ body {
 
 .container-img:hover .middle {
   opacity: 1;
+}
+
+.book {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
 }
 
 #myBtn {
@@ -45,3 +74,12 @@ body {
 #myBtn:hover {
   background-color: #555;
 }
+
+.bg-modal {
+  background-image: url("https://images.unsplash.com/photo-1554189097-ffe88e998a2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+

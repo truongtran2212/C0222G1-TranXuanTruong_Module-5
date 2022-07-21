@@ -1,3 +1,4 @@
+
 <body>
 <!-- list-->
 <div class="bg-menu table-dark table text-light font-weight-bold" style="padding-top: 100px">
@@ -8,30 +9,34 @@
         <thead>
         <tr>
           <th class="text-center">#</th>
-          <th class="text-center">Mã khách hàng</th>
-          <th class="text-center">Tên khách hàng</th>
-          <th class="text-center">Giới tính</th>
-          <th class="text-center">Căn cước công dân</th>
-          <th class="text-center">Số điện thoại</th>
-          <th class="text-center">Địa chỉ</th>
-          <th class="text-center">Loại khách hàng</th>
+          <th class="text-center">Code</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Gender</th>
+          <th class="text-center">Id Card</th>
+          <th class="text-center">Day Of Birth</th>
+          <th class="text-center">Phone</th>
+          <th class="text-center">Address</th>
+          <th class="text-center">Type Customer</th>
           <th class="text-center">Update</th>
           <th class="text-center">Delete</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let customer of customerList, index as i">
+
           <td>{{i + 1}}</td>
           <td>{{customer.code}}</td>
           <td>{{customer.name}}</td>
           <td>
 
-            <span *ngIf="customer.gender == 1">Nam</span>
-            <span *ngIf="customer.gender == 0">Nữ</span>
+            <span *ngIf="customer.gender == 1">Male</span>
+            <span *ngIf="customer.gender == 0">Female</span>
 
           </td>
           <td>{{customer.idCard}}</td>
+          <td>{{customer.dayOfBirth | date: 'dd/MM/yyyy'}}</td>
           <td>{{customer.phoneNumber}}</td>
+          <td>{{customer.email}}</td>
           <td>{{customer.address}}</td>
           <td>
 
@@ -39,6 +44,7 @@
             <span *ngIf="customer.typeCustomer == 2">Platinum</span>
             <span *ngIf="customer.typeCustomer == 3">Gold</span>
             <span *ngIf="customer.typeCustomer == 4">Silver</span>
+            <span *ngIf="customer.typeCustomer == 5">Member</span>
 
           </td>
 
@@ -59,7 +65,6 @@
             </a>
           </td>
         </tr>
-
         </tbody>
       </table>
     </div>
@@ -69,7 +74,6 @@
       <button class="btn btn-light">2</button>
       <button class="btn btn-light">...</button>
       <button class="btn btn-light">Next</button>
-
     </div>
   </div>
 </div>

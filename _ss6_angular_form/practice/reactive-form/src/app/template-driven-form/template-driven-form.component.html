@@ -1,0 +1,35 @@
+<form #createMember = "ngForm"
+  (ngSubmit)="onSubmit(createMember)"
+>
+
+  <p>
+    <label for="firstname">First Name </label>
+    <input ngModel type="text" id="firstname" name="firstname">
+  </p>
+
+  <p>
+    <label for="lastname">Last Name </label>
+    <input ngModel type="text" id="lastname" name="lastname">
+  </p>
+
+  <p>
+    <label for="email">Email </label>
+    <input ngModel type="email" id="email" name="email">
+  </p>
+
+  <p>
+    <label>Gender </label>
+    <input ngModel type="radio" value="male"  name="gender" formControlName="gender"> Male
+    <input ngModel type="radio" value="female"  name="gender" formControlName="gender"> Female
+  </p>
+
+  <p>
+    <label for="isMarried">Married </label>
+    <input ngModel type="checkbox" id="isMarried" name="isMarried">
+  </p>
+
+  <p>
+    <button type="submit">Submit</button>
+  </p>
+
+</form>

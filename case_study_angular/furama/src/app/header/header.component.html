@@ -1,10 +1,9 @@
-
 <body>
 <div class="container-fluid">
   <div class="row" style="display: flex">
     <div class="col-md-2">
-      <img src="https://kynghiviet.vn/public/upload/Tour/2020/FURAMA%20RESORT%20DA%20NANG/furama%20logo.png"
-           height="100px" width="100%">
+      <a routerLink=""><img src="https://kynghiviet.vn/public/upload/Tour/2020/FURAMA%20RESORT%20DA%20NANG/furama%20logo.png"
+           height="100px" width="100%"></a>
     </div>
     <div class="col-md-7 row" style="display: flex">
       <div class="col-md-5" style="padding-top: 12px">
@@ -36,7 +35,7 @@
 
 <!-- navbar-->
 
-<nav class="navbar navbar-expand-lg navbar-light "
+<nav class="navbar navbar-expand-lg navbar-light"
      style="padding-left: 33%; background-color: #467FFA; font-size: 20px; position: sticky ; top: 0; z-index: 999">
   <a class="navbar-brand" href="#" style="color: white; font-size: 20px">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -58,41 +57,20 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle navbarDropdown" href="#" role="button" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false" style="color: white">
-          Customer
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+<!--      customer-->
+      <li class="nav-item">
+        <a class="nav-link" style="color: white" routerLink="/list-customer">Customer</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle navbarDropdown" href="#" role="button" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false" style="color: white">
-          Service
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+
+<!--      Facilities-->
+
+      <li class="nav-item">
+        <a class="nav-link" style="color: white" routerLink="/list-facilities">Facilities</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle navbarDropdown" href="#" role="button" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false" style="color: white">
-          Contract
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+
+<!--      Contract-->
+      <li class="nav-item">
+        <a class="nav-link" style="color: white" routerLink="/list-contract">Contract</a>
       </li>
     </ul>
   </div>

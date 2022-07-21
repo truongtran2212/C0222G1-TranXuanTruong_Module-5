@@ -13,6 +13,8 @@ import { ModalCreateCustomerComponent } from './business-in-customer/modal-creat
 import { ModalUpdateCustomerComponent } from './business-in-customer/modal-update-customer/modal-update-customer.component';
 import { ContractComponent } from './business-in-contract/contract/contract.component';
 import { ModalCreateContractComponent } from './business-in-contract/modal-create-contract/modal-create-contract.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,14 @@ import { ModalCreateContractComponent } from './business-in-contract/modal-creat
     ModalCreateCustomerComponent,
     ModalUpdateCustomerComponent,
     ContractComponent,
-    ModalCreateContractComponent
+    ModalCreateContractComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,124 @@
+<form [formGroup]="registerForm" class="w-100 bg-white" novalidate>
+  <div class="w-100 ">
+    <div class="w-25 m-0 p-0 float-left">&nbsp;</div>
+    <div class=" w-50 content float-left p-0">
+      <div class="p-3">
+        <h4 style="text-align: center">Đăng ký tài khoản</h4>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input class="form-control" type="email" formControlName="email">
+        </div>
+
+        <div class="mb-3 text-danger" *ngIf="registerForm.controls.email.hasError('required')
+        && (registerForm.controls.email.dirty || registerForm.controls.email.touched)">
+          Input email, pls!!!
+        </div>
+
+        <div class="mb-3 text-danger" *ngIf="registerForm.controls.email.hasError('email')
+        && (registerForm.controls.email.dirty || registerForm.controls.email.touched)">
+          Wrong format!!!
+        </div>
+
+
+        <div formGroupName="passwordGroup">
+          <div class="form-group">
+            <label>Password</label>
+            <input class="form-control" type="password" formControlName="password">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="getPassword().invalid && (getPassword().dirty || getPassword().touched) && getPassword().errors.required">
+            Input password, pls!!!
+          </div>
+
+
+          <div class="mb-3 text-danger" *ngIf="getPassword().invalid && (getPassword().dirty || getPassword().touched) && getPassword().errors.minlength">
+            Input >= 6 characters!!!
+          </div>
+
+          <div class="form-group">
+            <label>confirm password</label>
+            <input class="form-control" type="password" formControlName="confirmPassword">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="getConfirmPassword().invalid && (getConfirmPassword().dirty || getConfirmPassword().touched) && getConfirmPassword().errors.required">
+            Input password, pls!!!
+          </div>
+
+
+          <div class="mb-3 text-danger" *ngIf="getConfirmPassword().invalid && (getConfirmPassword().dirty || getConfirmPassword().touched) && getConfirmPassword().errors.minlength">
+            Input >= 6 characters!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="registerForm.get('passwordGroup').hasError('notSame')
+                && (registerForm.get('passwordGroup').dirty || registerForm.get('passwordGroup').touched)">
+            2 password phải giống nhau
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label>Country</label>
+          <select class="form-control w-100" formControlName="country">
+            <option value="">----- Vui lòng chọn -----</option>
+            <option [ngValue]="country.name" *ngFor="let country of countryList">{{country.name}}</option>
+          </select>
+        </div>
+
+        <div class="mb-3 text-danger" *ngIf="registerForm.controls.country.hasError('required')
+        && (registerForm.controls.country.dirty || registerForm.controls.country.touched)">
+          Choose country, pls!
+        </div>
+
+        <div class="form-group">
+          <label>Age</label>
+          <input class="form-control" type="date" formControlName="age">
+        </div>
+
+        <div class="mb-3 text-danger" *ngIf="registerForm.controls.age.hasError('required')
+        && (registerForm.controls.age.dirty || registerForm.controls.age.touched)">
+          Input age, pls!!!
+        </div>
+
+        <div class="mb-3 text-danger" *ngIf="registerForm.controls.age.hasError('not18')
+        && (registerForm.controls.age.dirty || registerForm.controls.age.touched)">
+          Age >= 18 !!!
+        </div>
+
+        <div class="form-group">
+          <label>Gender</label>
+          <br>
+          <input type="radio" id="male" value="male" name="gender" formControlName="gender">
+          <label for="male">Male</label>
+          <br>
+          <input type="radio" id="female" value="female" name="gender" formControlName="gender">
+          <label for="female">Female</label>
+        </div>
+
+        <div class="mb-3 text-danger" *ngIf="registerForm.controls.gender.hasError('required')
+        && (registerForm.controls.gender.dirty || registerForm.controls.gender.touched)">
+          Choose gender, pls !!!
+        </div>
+
+        <div class="form-group">
+          <label>Phone</label>
+          <input class="form-control" type="text" formControlName="phone">
+        </div>
+
+        <div class="mb-3 text-danger" *ngIf="registerForm.controls.phone.hasError('required')
+        && (registerForm.controls.phone.dirty || registerForm.controls.phone.touched)">
+          input phone, pls !!!
+        </div>
+
+        <div class="mb-3 text-danger" *ngIf="registerForm.controls.gender.hasError('pattern')
+        && (registerForm.controls.gender.dirty || registerForm.controls.gender.touched)">
+          Wrong format! (bắt đầu với +84, và theo sau là 9 đến 10 chữ số)
+        </div>
+
+        <button class="btn btn-dark" type="submit" (click)="getRegister()" [disabled]="registerForm.invalid">Add new
+        </button>
+      </div>
+    </div>
+    <div class="w-25 m-0 p-0 float-left">&nbsp;</div>
+  </div>
+</form>

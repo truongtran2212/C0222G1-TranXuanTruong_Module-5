@@ -1,0 +1,70 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+
+  <p>
+    <label for="firstname">First Name </label>
+    <input type="text" id="firstname" name="firstname" formControlName="firstname">
+  </p>
+
+  <div
+    *ngIf="!firstname?.valid && (firstname.dirty ||firstname.touched)">
+    <div [hidden]="!firstname.errors.required">
+      First Name is required
+    </div>
+    <div [hidden]="!firstname.errors.minlength">
+      Min Length is 10
+    </div>
+  </div>
+
+  <p>
+    <label for="lastname">Last Name </label>
+    <input type="text" id="lastname" name="lastname" formControlName="lastname">
+  </p>
+
+  <div
+    *ngIf="!lastname.valid && (lastname.dirty ||lastname.touched)">
+    <div [hidden]="!lastname.errors.required">
+      First Name is required
+    </div>
+    <div [hidden]="!lastname.errors.minlength">
+      Min Length is 10
+    </div>
+  </div>
+  <p>
+    <label for="email">Email </label>
+    <input type="email" id="email" name="email" formControlName="email">
+  </p>
+
+  <div
+    *ngIf="!email.valid && (email.dirty ||email.touched)">
+    <div [hidden]="!email.errors.required">
+      First Name is required
+    </div>
+    <div [hidden]="!email.errors.email">
+      Wrong format!!!
+    </div>
+  </div>
+  <p>
+    <label>Geneder </label>
+    <input type="radio" value="male"  name="gender" formControlName="gender"> Male
+    <input type="radio" value="female"  name="gender" formControlName="gender"> Female
+  </p>
+
+  <p>
+    <label for="isMarried">Married </label>
+    <input type="checkbox" id="isMarried" name="isMarried" formControlName="isMarried">
+  </p>
+
+  <p>
+    <label for="country">country </label>
+    <select id="country" name="country"  formControlName="country">
+      <option [ngValue]="c.id" *ngFor="let c of countryList">{{c.name}}</option>
+    </select>
+  </p>
+
+  <p>
+    <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+  </p>
+
+</form>
+
+<!--<app-template-driven-form></app-template-driven-form>-->

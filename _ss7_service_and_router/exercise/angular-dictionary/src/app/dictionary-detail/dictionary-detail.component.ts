@@ -16,8 +16,7 @@ export class DictionaryDetailComponent implements OnInit {
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const mean = this.activatedRoute.snapshot.params.mean;
-    this.word = this.dictionaryService.findById(mean);
+    const word = this.activatedRoute.snapshot.params.word;
+    this.word = this.dictionaryService.findById(word);
   }
-
 }

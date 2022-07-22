@@ -6,8 +6,8 @@ import {DictionaryDetailComponent} from "./dictionary-detail/dictionary-detail.c
 
 const routes: Routes = [
 
-  {path: "dictionary", component: DictionaryPageComponent},
-  {path: 'dictionaryDetail/:mean', component: DictionaryDetailComponent}
+  {path: '', component: DictionaryPageComponent},
+  {path: 'dictionaryDetail/:word', component: DictionaryDetailComponent}
 
   ];
 

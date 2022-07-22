@@ -8,14 +8,14 @@ export class DictionaryService {
 
   constructor() { }
 
-  findById(mean: string): Word {
+  findById(word: string): Word {
     const wordList: Word[] = [
       {word: "dog", mean: "con chó"},
       {word: "cat", mean: "con mèo"},
       {word: "bird", mean: "con chim"},
       {word: "fish", mean: "con cá"},
       ];
-    return wordList.find(wordObj => wordObj.mean === mean)
+    return wordList.find(wordObj => wordObj.word === word)
   }
 
   findAll() : Word[] {

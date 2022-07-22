@@ -1,0 +1,17 @@
+<h1>Danh sách các từ</h1>
+<table>
+  <tr>
+    <td>STT</td>
+    <td>English</td>
+    <td>Detail</td>
+
+  </tr>
+  <tr *ngFor="let dictionary of wordList; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{dictionary.word}}</td>
+
+    <td><a routerLink="/dictionaryDetail/{{dictionary.mean}}">Detail</a>
+
+    </td>
+  </tr>
+</table>

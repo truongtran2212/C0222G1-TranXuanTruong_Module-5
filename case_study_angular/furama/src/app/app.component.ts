@@ -1,17 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {Title} from "@angular/platform-browser";
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
+import {Title} from '@angular/platform-browser';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'furama';
 
   ngOnInit(): void {
-    this.changeTitle()
+    this.changeTitle();
   }
 
   constructor(private titleService: Title, private router: Router, private activePage: ActivatedRoute) {
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit{
     this.router.events.subscribe(event => {
       switch (true) {
         case event instanceof NavigationEnd:
-          this.titleService.setTitle(this.activePage.firstChild.snapshot.data.title)
+          this.titleService.setTitle(this.activePage.firstChild.snapshot.data.title);
           break;
         default:
           break;

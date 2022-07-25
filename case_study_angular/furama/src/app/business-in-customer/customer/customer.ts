@@ -1,12 +1,16 @@
 export interface Customer {
-  id: number;
-  code: string;
-  name: string;
-  gender: number;
-  idCard: string;
-  dayOfBirth: string;
-  phoneNumber: string;
-  email: string;
-  address: string;
-  typeCustomer: number;
+  customerId: number;
+  customerCode: string;
+  customerName: string;
+  customerBirthday: string;
+  customerGender: number;
+  customerIdCard: string;
+  customerPhone: string;
+  customerEmail: string;
+  customerAddress: string;
+  customerType: {
+    customerTypeId: number;
+    customerTypeName: string;
+  };
+  status: number;
 }

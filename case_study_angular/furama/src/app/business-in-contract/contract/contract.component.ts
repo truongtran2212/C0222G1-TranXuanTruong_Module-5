@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Contract} from './contract';
+import {ContractService} from '../service/contract.service';
+import {Subscription} from 'rxjs';
+import {Contract} from '../Contract';
 
 @Component({
   selector: 'app-contract',
@@ -7,42 +9,22 @@ import {Contract} from './contract';
   styleUrls: ['./contract.component.css']
 })
 export class ContractComponent implements OnInit {
+  public contractList: Contract [] = [];
 
-  contractList: Contract[] = [
-    {
-      id: 1,
-      startDay: '2022-07-12',
-      endDay: '2022-07-18',
-      moneyDeposit: 2000,
-      totalMoney: 4000,
-    },
-    {
-      id: 2,
-      startDay: '2022-07-20',
-      endDay: '2022-07-22',
-      moneyDeposit: 3000,
-      totalMoney: 6000,
-    },
-    {
-      id: 3,
-      startDay: '2022-07-21',
-      endDay: '2022-07-22',
-      moneyDeposit: 1000,
-      totalMoney: 2000,
-    },
-    {
-      id: 4,
-      startDay: '2022-07-25',
-      endDay: '2022-07-27',
-      moneyDeposit: 7474,
-      totalMoney: 22222,
-    },
-  ];
+  private subcription: Subscription;
 
-  constructor() {
+  constructor(private contractService: ContractService) {
   }
 
   ngOnInit(): void {
+    this.findAllContract();
   }
 
+  findAllContract() {
+    this.subcription = this.contractService.findAll().subscribe(data => {
+      this.contractList = data;
+    }, error => {
+      console.log(error);
+    });
+  }
 }

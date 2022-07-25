@@ -38,10 +38,4 @@ export class ProductUpdateComponent implements OnInit {
     this.productUpdateForm.reset();
     this.router.navigateByUrl('');
   }
-
-
-
-
-
-
 }

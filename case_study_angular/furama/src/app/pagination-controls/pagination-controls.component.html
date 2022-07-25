@@ -1,0 +1,9 @@
+<div style="margin: 20px; margin-left: 40%">
+  <a *ngFor="let el of pages" [ngClass]="{'active' : active == el}" (click)="active = el">
+    <button class="btn btn-light" style="margin-left: 30px">&nbsp;{{el}}&nbsp;</button>
+<!--    <button (click)="setPage(currentPage + 1)">Next</button>-->
+
+  </a>
+</div>
+
+

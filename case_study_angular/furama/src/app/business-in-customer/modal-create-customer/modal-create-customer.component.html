@@ -114,7 +114,7 @@
             <label>Kiểu khách hàng</label>
             <select class="form-control w-100" formControlName="typeCustomer">
               <option value="">----- Vui lòng chọn -----</option>
-              <option [ngValue]="tc.name" *ngFor="let tc of typeCustomerList ">{{tc.name}}</option>
+              <option [ngValue]="tc.id" *ngFor="let tc of typeCustomerList ">{{tc.customerTypeName}}</option>
             </select>
           </div>
 

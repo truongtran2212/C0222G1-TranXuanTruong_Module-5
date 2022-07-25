@@ -177,6 +177,16 @@
               Choose rent type , pls!!!
             </div>
 
+            <div class="form-group">
+              <label>URL</label>
+              <input class="form-control" type="text" formControlName="url">
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="createForm.controls.url.hasError('required')
+        && (createForm.controls.url.dirty || createForm.controls.url.touched)">
+              Input url, pls!!!
+            </div>
+
             <button class="btn btn-dark" type="submit" (click)="onSubmit()" [disabled]="createForm.invalid" data-dismiss="modal">Add new</button>
             &nbsp;
             <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>

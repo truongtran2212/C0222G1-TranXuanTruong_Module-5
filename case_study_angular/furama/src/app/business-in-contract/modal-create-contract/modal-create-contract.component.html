@@ -5,6 +5,16 @@
         <div class="p-3 bg-modal">
           <h4 style="text-align: center">Thêm hợp đồng</h4>
 
+<!--          <div class="form-group">-->
+<!--            <label>ID</label>-->
+<!--            <input class="form-control" type="text" formControlName="id">-->
+<!--          </div>-->
+
+<!--          <div class="mb-3 text-danger" *ngIf="createContractForm.controls.id.hasError('required')-->
+<!--                && (createContractForm.controls.id.dirty || createContractForm.controls.id.touched)">-->
+<!--            Input id, pls!!!-->
+<!--          </div>-->
+
           <div formGroupName="day">
             <div class="form-group">
               <label>Ngày bắt đầu</label>
@@ -28,7 +38,7 @@
           </div>
 
           <div class="mb-3 text-danger" *ngIf="createContractForm.get('day').hasError('error')
-                && (createContractForm.get('day').dirty || createContractForm.get('day').touched)">
+                && ( createContractForm.get('day').touched)">
             Ngày kết thúc phải sau ngày bắt đầu
           </div>
 

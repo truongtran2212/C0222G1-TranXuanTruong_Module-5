@@ -49,7 +49,7 @@ export class ProductService {
   }
 
   updateProduct(product: Product) {
-    for (let i = 0; i < this.products.length - 1; i++) {
+    for (let i = 0; i < this.products.length; i++) {
       if (this.products[i].id === product.id) {
         this.products.splice(i, 1, product)
         break;

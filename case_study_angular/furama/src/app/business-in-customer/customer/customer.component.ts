@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from './customer';
+import {CustomerService} from '../service/customer.service';
+import {Subscription} from 'rxjs';
+import {TypeCustomer} from '../type-customer';
 
 @Component({
   selector: 'app-customer',
@@ -9,65 +12,48 @@ import {Customer} from './customer';
 
 export class CustomerComponent implements OnInit {
 
-  // customer: {} = {};
-  customerList: Customer[] = [
-    {
-      id: 1,
-      code: 'KH-1111',
-      name: 'Trường',
-      gender: 1,
-      idCard: '123123',
-      dayOfBirth: '2022-12-22',
-      phoneNumber: '23412546',
-      email: 'truongtran@gmail.com',
+  id: number;
+  name: string;
+  customerList: Customer[];
+  customerTypeList: TypeCustomer[];
+  pageOfItems: Array<any>;
+  page = 1;
+  private subcription: Subscription;
 
-      address: '12 Trần Phú',
-      typeCustomer: 1
-    },
-    {
-      id: 2,
-      code: 'KH-1111',
-      name: 'Khoa',
-      gender: 1,
-      idCard: '123123',
-      dayOfBirth: '2022-12-22',
-      phoneNumber: '23412546',
-      email: 'truongtran@gmail.com',
-      address: '12 Trần Phú',
-      typeCustomer: 2
-    },
-    {
-      id: 3,
-      code: 'KH-1111',
-      name: 'Tùng',
-      gender: 1,
-      idCard: '123123',
-      dayOfBirth: '2022-12-22',
-      phoneNumber: '23412546',
-      email: 'truongtran@gmail.com',
-      address: '12 Trần Phú',
-      typeCustomer: 3
-    },
-    {
-      id: 4,
-      code: 'KH-1111',
-      name: 'Thảo',
-      gender: 0,
-      idCard: '123123',
-      dayOfBirth: '2022-12-22',
-      phoneNumber: '23412546',
-      email: 'truongtran@gmail.com',
-      address: '12 Trần Phú',
-      typeCustomer: 4
-    }
-  ];
 
-  constructor() {
+  constructor(private customerService: CustomerService) {
   }
 
   ngOnInit(): void {
-
+    this.findAllCustomer();
+    this.findAllCustomerType();
+    console.log(this.findAllCustomer());
+    console.log(this.findAllCustomerType());
   }
 
+  findAllCustomer() {
+    this.customerService.findAll().subscribe(data => {
+      this.customerList = data;
+    }, error => {
+      console.log(error);
+    });
+  }
 
+  findAllCustomerType() {
+    this.customerService.findAllTypeCustomer().subscribe(data => {
+      console.log(data);
+      this.customerTypeList = data;
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  delete() {
+    this.customerService.delete(this.id);
+  }
+
+  valueOf(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
 }

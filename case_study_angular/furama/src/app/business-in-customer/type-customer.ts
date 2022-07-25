@@ -1,3 +1,5 @@
 export interface TypeCustomer {
-  name: string;
+  customerTypeId: number;
+  customerTypeName: string;
 }
+

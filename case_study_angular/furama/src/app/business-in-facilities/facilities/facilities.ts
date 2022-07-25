@@ -1,5 +1,5 @@
 export interface Facilities {
-  id: number;
+  idFacilities: number;
   code: string;
   name: string;
   useAble: number;

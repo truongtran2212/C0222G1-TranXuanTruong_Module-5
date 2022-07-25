@@ -1,4 +1,4 @@
-<form [formGroup] ="updateForm" novalidate>
+<form [formGroup]="updateForm" novalidate>
   <div class="modal" id="form-update">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -7,10 +7,14 @@
           <div class="form-group">
 
             <div class="form-group">
+              <label>Id</label>
+              <input class="form-control" readonly type="text" formControlName="idFacilities">
+            </div>
+
+            <div class="form-group">
               <label>Loại dịch vụ</label>
               <select class="form-control w-100" formControlName="serviceType">
-                <option value="">----- Vui lòng chọn loại dịch vụ -----</option>
-                <option [ngValue]="sv.name" *ngFor="let sv of serviceTypeList">{{sv.name}}</option>
+                <option [ngValue]="sv.id" *ngFor="let sv of serviceTypeList">{{sv.name}}</option>
               </select>
             </div>
 
@@ -39,10 +43,10 @@
               Input name service, pls!!!
             </div>
 
-            <!--            <div class="mb-3 text-danger" *ngIf="createForm.controls.name.hasError('pattern')-->
-            <!--        && (createForm.controls.name.dirty || createForm.controls.name.touched)">-->
-            <!--              Wrong format !!!-->
-            <!--            </div>-->
+            <div class="mb-3 text-danger" *ngIf="updateForm.controls.name.hasError('pattern')
+                    && (updateForm.controls.name.dirty || updateForm.controls.name.touched)">
+              Wrong format !!!
+            </div>
 
             <div class="form-group">
               <label>Diện tích sử dụng</label>
@@ -168,7 +172,7 @@
               <label>Kiểu thuê</label>
               <select class="form-control w-100" formControlName="rentType">
                 <option value="">----- Vui lòng chọn kiểu thuê -----</option>
-                <option [ngValue]="rt.name" *ngFor="let rt of rentTypeList">{{rt.name}}</option>
+                <option [ngValue]="rt.id" *ngFor="let rt of rentTypeList">{{rt.name}}</option>
               </select>
             </div>
 
@@ -177,7 +181,19 @@
               Choose rent type , pls!!!
             </div>
 
-            <button class="btn btn-dark" type="submit" (click)="onSubmit()" [disabled]="updateForm.invalid" data-dismiss="modal">Update</button>
+            <div class="form-group">
+              <label>Số tầng</label>
+              <input class="form-control" type="text" formControlName="url">
+            </div>
+
+            <div class="mb-3 text-danger" *ngIf="updateForm.controls.url.hasError('required')
+        && (updateForm.controls.url.dirty || updateForm.controls.url.touched)">
+              Input url , pls!!!
+            </div>
+
+            <button class="btn btn-dark" type="submit" (click)="onSubmit()" [disabled]="updateForm.invalid"
+                    data-dismiss="modal">Update
+            </button>
             &nbsp;
             <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>
           </div>

@@ -21,12 +21,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let contract of contractList; index as i">
-          <td style="text-align: center">{{contract.id}}</td>
-          <td>{{contract.startDay | date : "dd-MM-yyyy"}}</td>
-          <td>{{contract.endDay | date : "dd-MM-yyyy"}}</td>
-          <td>{{contract.moneyDeposit}}</td>
-          <td>{{contract.totalMoney}}</td>
+        <tr *ngFor="let contract of contractList">
+          <td style="text-align: center">{{contract.contractId}}</td>
+          <td>{{contract.contractStartDay | date : "dd-MM-yyyy"}}</td>
+          <td>{{contract.contractEndDay | date : "dd-MM-yyyy"}}</td>
+          <td>{{contract.contractDeposit}}</td>
+          <td>{{contract.contractTotalMoney}}</td>
         </tr>
         </tbody>
       </table>
@@ -39,6 +39,7 @@
       <button class="btn btn-light">Next</button>
 
     </div>
+
   </div>
 </div>
 

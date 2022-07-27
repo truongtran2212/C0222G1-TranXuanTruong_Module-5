@@ -1,0 +1,27 @@
+{
+  "productList": [
+    {
+      "id": 4,
+      "name": "S450",
+      "cost": 444,
+      "category": {
+        "id": 1,
+        "name": "Mercedes"
+      }
+    }
+  ],
+  "categoryList": [
+    {
+      "id": 1,
+      "name": "Mercedes"
+    },
+    {
+      "id": 2,
+      "name": "Audi"
+    },
+    {
+      "id": 3,
+      "name": "BMW"
+    }
+  ]
+}

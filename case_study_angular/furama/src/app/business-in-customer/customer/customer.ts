@@ -12,5 +12,5 @@ export interface Customer {
     customerTypeId: number;
     customerTypeName: string;
   };
-  status: number;
+  status: 0;
 }

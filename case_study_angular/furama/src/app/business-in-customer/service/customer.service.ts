@@ -10,8 +10,6 @@ import {TypeCustomer} from '../type-customer';
 export class CustomerService {
   private readonly API_URL = 'http://localhost:8080/list-customer-ajax';
 
-  customerList: Customer[] = [];
-
   constructor(private http: HttpClient) {
   }
 
@@ -37,5 +35,10 @@ export class CustomerService {
 
   update(customer: Customer): Observable<void> {
     return this.http.patch<void>(this.API_URL + '/' + customer.customerId, customer);
+  }
+
+  create(customer: Customer): Observable<void> {
+    console.log(customer);
+    return this.http.post<void>('http://localhost:8080/create-customer', customer);
   }
 }

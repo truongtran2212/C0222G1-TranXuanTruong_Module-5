@@ -1,68 +1,42 @@
 import {Injectable} from '@angular/core';
 import {Product} from "../module/product";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {Category} from "../module/Category";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  products: Product[] = [{
-    id: 1,
-    name: 'IPhone 12',
-    price: 2400000,
-    description: 'New'
-  }, {
-    id: 2,
-    name: 'IPhone 11',
-    price: 1560000,
-    description: 'Like new'
-  }, {
-    id: 3,
-    name: 'IPhone X',
-    price: 968000,
-    description: '97%'
-  }, {
-    id: 4,
-    name: 'IPhone 8',
-    price: 7540000,
-    description: '98%'
-  }, {
-    id: 5,
-    name: 'IPhone 11 Pro',
-    price: 1895000,
-    description: 'Like new'
-  }];
+  API_P = 'http://localhost:3000/productList'
 
-  getAll() {
-    return this.products;
+  API_C = 'http://localhost:3000/categoryList'
+
+  getAllProduct(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.API_P);
   }
 
-  saveProduct(product) {
-    this.products.push(product);
+  getAllCategory(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.API_C);
   }
 
-  findById(id: number): Product {
-    return this.products.find(product => product.id === id);
+  saveProduct(product): Observable<void> {
+  return this.http.post<void>(this.API_P, product);
   }
 
-  updateProduct(product: Product) {
-    for (let i = 0; i < this.products.length; i++) {
-      if (this.products[i].id === product.id) {
-        this.products.splice(i, 1, product)
-        break;
-      }
-    }
+  findById(id: number): Observable<Product> {
+    return this.http.get<Product>(this.API_P + '/' + id)
   }
 
-  delete(id: number){
-    for (let i = 0; i < this.products.length; i++) {
-      if (this.products[i].id === id) {
-        this.products.splice(i, 1)
-        break;
-      }
-    }
+  updateProduct(product: Product): Observable<void> {
+     return  this.http.patch<void>(this.API_P + '/' + product.id, product)
+  }
+
+  delete(id: number): Observable<void>{
+      return this.http.delete<void>(this.API_P + '/' + id)
   }
 }

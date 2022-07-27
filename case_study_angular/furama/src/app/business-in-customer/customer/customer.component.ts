@@ -35,17 +35,18 @@ export class CustomerComponent implements OnInit {
   ];
   customer: Customer;
   customerFormUpdate = new FormGroup({
-    id: new FormControl(''),
-    code: new FormControl('', [Validators.required, Validators.pattern('^KH-[0-9]{4}$')]),
-    name: new FormControl('', Validators.required),
-    gender: new FormControl('', Validators.required),
-    idCard: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}|[0-9]{12}$')]),
-    dayOfBirth: new FormControl('', Validators.required),
-    phone: new FormControl('', [Validators.required,
+    customerId: new FormControl(),
+    customerCode: new FormControl('', [Validators.required, Validators.pattern('^KH-[0-9]{4}$')]),
+    customerName: new FormControl('', Validators.required),
+    customerBirthday: new FormControl('', Validators.required),
+    customerIdCard: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}|[0-9]{12}$')]),
+    customerGender: new FormControl('', Validators.required),
+    customerPhone: new FormControl('', [Validators.required,
       Validators.pattern('^090[0-9]{7}|091[0-9]{7}|\\(84\\)\\+90[0-9]{7}|\\(84\\)\\+91[0-9]{7}$')]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    address: new FormControl('', Validators.required),
-    typeCustomer: new FormControl('', Validators.required),
+    customerEmail: new FormControl('', [Validators.required, Validators.email]),
+    customerAddress: new FormControl('', Validators.required),
+    customerType: new FormControl('', Validators.required),
+    status: new FormControl(0),
   });
 
   typeCustomerList: TypeCustomer[] = [
@@ -55,6 +56,7 @@ export class CustomerComponent implements OnInit {
     {customerTypeId: 4, customerTypeName: 'Silver'},
     {customerTypeId: 5, customerTypeName: 'Member'},
   ];
+
   // customerTypeList: TypeCustomer[];
 
   constructor(private customerService: CustomerService,
@@ -63,27 +65,22 @@ export class CustomerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.findAllCustomer();
-    this.findAllCustomerType();
-    console.log(this.findAllCustomer());
-    console.log(this.findAllCustomerType());
-  }
-
-  findAllCustomer() {
     this.customerService.findAll().subscribe(data => {
       this.customerList = data;
-    }, error => {
-      console.log(error);
-    });
-  }
-
-  findAllCustomerType() {
-    this.customerService.findAllTypeCustomer().subscribe(data => {
       console.log(data);
+    }, error => {
+      console.log(error);
+    }, () => {
+      console.log('complete');
+    });
+
+    this.customerService.findAllTypeCustomer().subscribe(data => {
       this.typeCustomerList = data;
+      console.log(data);
     }, error => {
       console.log(error);
     });
+
   }
 
   delete() {
@@ -105,19 +102,29 @@ export class CustomerComponent implements OnInit {
 
 
   onSubmitCreate() {
-
+    const customerObj = this.customerFormUpdate.value;
+    this.customerService.create(customerObj).subscribe(() => {
+      this.customerFormUpdate.reset();
+      // this.router.navigateByUrl('/list-customer');
+      console.log(customerObj);
+      alert('Them moi thanh cong');
+    }, error => {
+      console.log('error');
+    });
   }
 
   update() {
     const id = Number(this.activatedRoute.snapshot.params.id);
+    console.log(id);
     this.customerService.findById(id).subscribe(value => {
       this.customer = value;
       console.log(this.customer);
+      console.log(this.customerService.findById(id));
       this.customerFormUpdate.patchValue(this.customer);
     }, error => {
       console.log(error);
     }, () => {
-      // this.ngOnInit();
+      this.ngOnInit();
     });
   }
 }

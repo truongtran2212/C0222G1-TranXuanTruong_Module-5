@@ -1,25 +1,30 @@
 <h1>Tạo sản phẩm mới</h1>
 <form [formGroup]="productForm" (ngSubmit)="submit()">
   <table>
-    <tr>
-      <td>Mã sản phẩm:</td>
-      <td><input type="number" formControlName="id"></td>
-    </tr>
+<!--    <tr>-->
+<!--      <td>Mã sản phẩm:</td>-->
+<!--      <td><input type="number" formControlName="id"></td>-->
+<!--    </tr>-->
     <tr>
       <td>Tên sản phẩm:</td>
       <td><input type="text" formControlName="name"></td>
     </tr>
     <tr>
       <td>Giá sản phẩm</td>
-      <td><input type="number" formControlName="price"></td>
+      <td><input type="number" formControlName="cost"></td>
     </tr>
     <tr>
-      <td>Mô tả về sản phẩm</td>
-      <td><input type="text" formControlName="description"></td>
+      <td>Danh muc</td>
+      <select class="form-control w-100" formControlName="category">
+        <option value="">---- Vui lòng chọn danh muc ----</option>
+        <option [ngValue]="category" *ngFor="let category of categoryList ">{{category.name}}</option>
+      </select>
     </tr>
     <tr>
       <td></td>
-      <td><button>Tạo mới</button></td>
+      <td>
+        <button>Tạo mới</button>
+      </td>
     </tr>
   </table>
 </form>

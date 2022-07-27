@@ -6,11 +6,11 @@
     <td>Giá</td>
     <td>Mô tả</td>
   </tr>
-  <tr *ngFor="let product of products; index as i">
+  <tr *ngFor="let product of productList; index as i">
     <td>{{i + 1}}</td>
     <td>{{product.name}}</td>
-    <td>{{product.price}}</td>
-    <td>{{product.description}}</td>
+    <td>{{product.cost}}</td>
+    <td>{{product.category.name}}</td>
     <td>
       <a routerLink="/product/edit/{{product.id}}">Update</a>
     </td>

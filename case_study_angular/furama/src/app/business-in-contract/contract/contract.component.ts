@@ -16,13 +16,19 @@ export class ContractComponent implements OnInit {
   constructor(private contractService: ContractService) {
   }
 
-  ngOnInit(): void {
-    this.findAllContract();
-  }
+  // findAllContract() {
+  //   this.subcription = this.contractService.findAll().subscribe(data => {
+  //     this.contractList = data;
+  //     console.log(data);
+  //   }, error => {
+  //     console.log(error);
+  //   });
+  // }
 
-  findAllContract() {
-    this.subcription = this.contractService.findAll().subscribe(data => {
+  ngOnInit(): void {
+     this.contractService.findAll().subscribe(data => {
       this.contractList = data;
+      console.log(data);
     }, error => {
       console.log(error);
     });

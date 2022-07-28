@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "image-slider": {
+    "angular-image": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/image-slider",
+            "outputPath": "dist/angular-image",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "image-slider:build"
+            "browserTarget": "angular-image:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "image-slider:build:production"
+              "browserTarget": "angular-image:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "image-slider:build"
+            "browserTarget": "angular-image:build"
           }
         },
         "test": {
@@ -110,19 +110,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "image-slider:serve"
+            "devServerTarget": "angular-image:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "image-slider:serve:production"
+              "devServerTarget": "angular-image:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "image-slider",
+  "defaultProject": "angular-image",
   "cli": {
-    "analytics": "637a95c3-4835-4993-89d3-05f29aad26b1"
+    "analytics": "20d34321-c762-44e6-9433-7e484e2dea3e"
   }
 }

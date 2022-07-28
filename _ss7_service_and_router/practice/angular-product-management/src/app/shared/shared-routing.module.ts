@@ -5,7 +5,6 @@ import {NavBarComponent} from "./nav-bar/nav-bar.component";
 
 
 const routes: Routes = [
-  // {path: '' , component: NavBarComponent},
 ];
 
 @NgModule({

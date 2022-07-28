@@ -1,0 +1,315 @@
+<header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarExample01"
+        aria-controls="navbarExample01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Background image -->
+  <div
+    class="p-5 text-center bg-image"
+    style="
+      background-image: url('https://wallpapersnap.com/wallpapers/full/5/4/1/74880.jpg');
+      height: 200px;
+
+    "
+  >
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+
+    </div>
+  </div>
+  <!-- Background image -->
+</header>
+<div class="table mt-0 font-weight-bold" style="padding-top: 50px">
+  <a data-toggle="modal"
+     data-target="#search" style="float: right">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
+      <i class="fa-solid fa-magnifying-glass" style="font-size: 1.5rem"></i></button>
+  </a>
+  <div class="container-fluid body">
+    <div class="center container-fluid">
+      <h1 style="text-align: center">Danh sách vé</h1>
+      <table style="border-collapse:  collapse; width: 100%" id="employeeList">
+        <thead>
+        <tr>
+          <th class="text-center">Điểm đi</th>
+          <th class="text-center">Điếm đến</th>
+          <th class="text-center">Giá vé</th>
+          <th class="text-center">Ngày khởi hành</th>
+          <th class="text-center">Giờ khởi hành</th>
+          <th class="text-center">Nhà xe</th>
+          <th class="text-center">Số lượng</th>
+          <th class="text-center">Đặt vé</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ticket of ticketList | paginate: { itemsPerPage: 2, currentPage: p } ;index as i">
+
+          <!--          <td>{{i + 1}}</td>-->
+
+          <td>{{ticket.start}}</td>
+          <td>{{ticket.end}}</td>
+          <td>{{ticket.cost}}</td>
+          <td>{{ticket.dayStart | date: 'dd/MM/yyyy'}}</td>
+          <td>{{ticket.time}}</td>
+          <td>{{ticket.home.name}}</td>
+          <td>{{ticket.quantity}}</td>
+          <td style="text-align: center">
+            <a style="color: white"
+               (click)="valueOf(ticket.id, ticket.start, ticket.end, ticket.time, ticket.dayStart)"
+               data-toggle="modal"
+               data-target="#book">
+              <button class="btn btn-light">
+                <!--                          <i style=" font-size: 1.5rem" class="fa-solid fa-trash-can btn text-danger"></i>-->
+                Đặt vé
+              </button>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    <button class=" btn btn-primary" data-toggle="modal" data-target="#form-create">Create</button>
+  </div>
+</div>
+
+<form [formGroup]="ticketForm" novalidate>
+  <div class="modal " id="form-create">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="p-3 bg-modal">
+          <h4 style="text-align: center">Thêm mới học sinh</h4>
+
+          <div class="form-group">
+            <label>Giá vé</label>
+            <input class="form-control" type="number" formControlName="cost">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="ticketForm.controls.cost.hasError('required')
+                  && (ticketForm.controls.cost.dirty || ticketForm.controls.cost.touched)">
+            Input cost, pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="ticketForm.controls.cost.hasError('min')
+                  && (ticketForm.controls.cost.dirty || ticketForm.controls.cost.touched)">
+            Input cost > 0, pls!!!
+          </div>
+
+
+          <div class="form-group">
+            <label>Điểm đi</label>
+            <input class="form-control" type="text" formControlName="start">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="ticketForm.controls.start.hasError('required')
+                  && (ticketForm.controls.start.dirty || ticketForm.controls.start.touched)">
+            Input start place, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Điểm đến</label>
+            <input class="form-control" type="text" formControlName="end">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="ticketForm.controls.end.hasError('required')
+                  && (ticketForm.controls.end.dirty || ticketForm.controls.end.touched)">
+            Input end place, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Ngày khởi hành</label>
+            <input class="form-control" type="date" formControlName="dayStart">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="ticketForm.controls.dayStart.hasError('required')
+                  && (ticketForm.controls.dayStart.dirty || ticketForm.controls.dayStart.touched)">
+            Input day start , pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="ticketForm.hasError('error')
+                  && (ticketForm.dirty || ticketForm.touched)">
+            Input start day > current day, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Giờ khởi hành</label>
+            <input class="form-control" type="text" formControlName="time">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="ticketForm.controls.time.hasError('required')
+                  && (ticketForm.controls.time.dirty || ticketForm.controls.time.touched)">
+            Input time start , pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Nhà xe</label>
+            <select class="form-control w-100" formControlName="home">
+              <option value="">---- Vui lòng chọn nhà xe ----</option>
+              <option [ngValue]="home" *ngFor="let home of homeList ">{{home.name}}</option>
+            </select>
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="ticketForm.controls.home.hasError('required')
+                  && (ticketForm.controls.home.dirty || ticketForm.controls.home.touched)">
+            Choose home, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Số lượng</label>
+            <input class="form-control" type="number" formControlName="quantity">
+          </div>
+
+
+          <div class="mb-3 text-danger" *ngIf="ticketForm.controls.quantity.hasError('required')
+                  && (ticketForm.controls.quantity.dirty || ticketForm.controls.quantity.touched)">
+            Input quantity, pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="ticketForm.controls.quantity.hasError('min')
+                  && (ticketForm.controls.quantity.dirty || ticketForm.controls.quantity.touched)">
+            Input quantity > 0, pls!!!
+          </div>
+
+
+          <button class="btn btn-dark" (click)="onSubmitCreate()" [disabled]="ticketForm.invalid"
+                  data-dismiss="modal">Add new
+          </button>
+          &nbsp;
+          <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="modal" id="search">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100 text-center">Chọn thuộc tính bạn muốn tìm kiếm</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="form-group">
+        <div class="modal-body footer border- 0">
+          <input [(ngModel)]="start" type="text" placeholder="Điểm đi" class="form-control">
+
+          <input [(ngModel)]="end" type="text" placeholder="Điểm đến" class="form-control">
+
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="submit" class="btn btn-dark" (click)="search()" data-dismiss="modal">
+          Tìm kiếm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-secondary text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #3b5998;"
+        href="https://www.facebook.com/"
+        role="button"
+      ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #55acee;"
+        href="https://twitter.com/home?lang=vi"
+        role="button"
+      ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #dd4b39;"
+        href="http://google.com/"
+        role="button"
+      ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #ac2bac;"
+        href="#!"
+        role="button"
+      ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #0082ca;"
+        href="#!"
+        role="button"
+      ><i class="fab fa-linkedin-in"></i
+      ></a>
+      <!-- Github -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #443f3f;"
+        href="https://github.com/"
+        role="button"
+      ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">Codegym</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+<div class="modal" id="book">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 style="text-align: center"></h1>
+        <h4 class="modal-title w-100 text-center">
+          Bạn có chắc muốn đặt vé xe từ {{start}}
+          đến {{end}} vào {{time}} ngày {{dayStart}} không!
+        </h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="book()">
+          <a class="text-white">Có</a>
+        </button>
+        <button type="button" class="btn btn-dark " data-dismiss="modal">Không</button>
+      </div>
+    </div>
+  </div>
+</div>

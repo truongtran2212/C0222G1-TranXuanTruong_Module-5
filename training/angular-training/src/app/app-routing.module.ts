@@ -6,7 +6,8 @@ import {StudentComponent} from "./student/student.component";
 
 const routes: Routes = [
   {path: 'edit-customer/:id' , component: EditStudentComponent},
-  {path: '' , component: StudentComponent},
+    {path: '' , component: StudentComponent},
+  {path: './:toast' , component: StudentComponent},
   ];
 
 @NgModule({

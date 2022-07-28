@@ -8,6 +8,69 @@
         "id": 1,
         "name": "Mercedes"
       }
+    },
+    {
+      "id": 5,
+      "name": "12",
+      "cost": 2,
+      "category": {
+        "id": 1,
+        "name": "Mercedes"
+      }
+    },
+    {
+      "id": 6,
+      "name": "425",
+      "cost": 22,
+      "category": {
+        "id": 1,
+        "name": "Mercedes"
+      }
+    },
+    {
+      "id": 8,
+      "name": "556",
+      "cost": 2,
+      "category": {
+        "id": 1,
+        "name": "Mercedes"
+      }
+    },
+    {
+      "id": 10,
+      "name": "4123",
+      "cost": 123,
+      "category": {
+        "id": 2,
+        "name": "Audi"
+      }
+    },
+    {
+      "id": 11,
+      "name": "333",
+      "cost": 41,
+      "category": {
+        "id": 3,
+        "name": "BMW"
+      }
+    },
+    {
+      "id": 20,
+      "name": "55",
+      "cost": 43,
+      "category": {
+        "id": 2,
+        "name": "Audi"
+      }
+    },
+    {
+      "id": 21,
+      "name": "125",
+      "cost": 2421,
+      "category": {
+        "id": 2,
+        "name": "Audi"
+      }
     }
   ],
   "categoryList": [

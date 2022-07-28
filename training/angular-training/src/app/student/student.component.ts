@@ -3,7 +3,8 @@ import {Student} from "../student";
 import {StudentService} from "../service/student.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Class} from "../class";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-student',
@@ -14,7 +15,7 @@ export class StudentComponent implements OnInit {
 
   constructor(private studentService: StudentService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) {
+              private toast: ToastrService) {
   }
 
   id: number;
@@ -33,14 +34,26 @@ export class StudentComponent implements OnInit {
     gender: new FormControl('', Validators.required),
     class: new FormControl('', Validators.required)
   })
+  p: number = 1;
 
   ngOnInit(): void {
+    this.getAllStudent();
+    this.getAllClass();
+    const toast = this.activatedRoute.snapshot.params.toast;
+    if(toast === 'edit-success'){
+      this.toast.success('Edit student successfully!', 'Product!');
+    }
+  }
+
+  getAllStudent() {
     this.studentService.findAll().subscribe(value => {
       this.studentList = value;
     }, error => {
       console.log(error)
     })
+  }
 
+  getAllClass() {
     this.studentService.findAllClass().subscribe(value => {
       this.classList = value;
     }, error => {
@@ -56,6 +69,7 @@ export class StudentComponent implements OnInit {
     }, error => {
 
     }, () => {
+      this.toast.success('Add Product successfully!', 'Product!');
       this.ngOnInit();
     })
   }
@@ -72,7 +86,8 @@ export class StudentComponent implements OnInit {
     }, error => {
 
     }, () => {
-      this.ngOnInit();
+      this.toast.success('Delete Product successfully!', 'Product!');
+      this.getAllStudent()
     })
   }
 
@@ -83,7 +98,7 @@ export class StudentComponent implements OnInit {
       console.log(this.idClass);
       console.log(this.name)
       console.log(this.studentList)
-    },error => {
+    }, error => {
       console.log(error)
     }, () => {
     })

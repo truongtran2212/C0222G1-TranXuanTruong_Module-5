@@ -6,9 +6,15 @@ import {ProductUpdateComponent} from "./product/product-update/product-update.co
 
 
 const routes: Routes = [
-  {path: '', component: ProductListComponent},
-  {path: 'product/create', component: ProductCreateComponent},
-  {path: 'product/edit/:id', component: ProductUpdateComponent},
+
+  {
+    path: 'product',
+    loadChildren: () => import('./product/product.module').then(module => module.ProductModule)
+  },
+  {
+    path: 'category',
+    loadChildren: () => import('./category/category/category.module').then(module => module.CategoryModule)
+  }
   ];
 
 @NgModule({

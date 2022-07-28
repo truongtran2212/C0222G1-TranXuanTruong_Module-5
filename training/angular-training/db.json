@@ -1,18 +1,8 @@
 {
   "studentList": [
     {
-      "id": 983,
-      "name": "Trần Xuân Trường",
-      "dateOfBirth": "2000-06-12",
-      "gender": 1,
-      "class": {
-        "id": 1,
-        "name": "C0222G1"
-      }
-    },
-    {
       "id": 984,
-      "name": "Nguyễn Hoàng Hảo",
+      "name": "Nguyen Hoang Hao",
       "dateOfBirth": "2022-06-29",
       "gender": "1",
       "class": {
@@ -21,18 +11,8 @@
       }
     },
     {
-      "id": 985,
-      "name": "Nguyen Thanh Tung",
-      "dateOfBirth": "2022-07-09",
-      "gender": "1",
-      "class": {
-        "id": 3,
-        "name": "C0322G1"
-      }
-    },
-    {
       "id": 988,
-      "name": "Quốc Trung",
+      "name": "Quoc Trung Ho",
       "dateOfBirth": "2022-07-16",
       "gender": "1",
       "class": {
@@ -58,6 +38,76 @@
       "class": {
         "id": 1,
         "name": "C0222G1"
+      }
+    },
+    {
+      "id": 991,
+      "name": "Nguyen hoang",
+      "dateOfBirth": "2022-07-15",
+      "gender": "1",
+      "class": {
+        "id": 2,
+        "name": "C1221G1"
+      }
+    },
+    {
+      "id": 992,
+      "name": "Le Hoang",
+      "dateOfBirth": "2022-07-14",
+      "gender": "1",
+      "class": {
+        "id": 1,
+        "name": "C0222G1"
+      }
+    },
+    {
+      "id": 993,
+      "name": "Tran Hung",
+      "dateOfBirth": "2022-07-11",
+      "gender": "0",
+      "class": {
+        "id": 2,
+        "name": "C1221G1"
+      }
+    },
+    {
+      "id": 994,
+      "name": "Tran Hiii",
+      "dateOfBirth": "2022-07-20",
+      "gender": "1",
+      "class": {
+        "id": 3,
+        "name": "C0322G1"
+      }
+    },
+    {
+      "id": 995,
+      "name": "Truong",
+      "dateOfBirth": "2022-07-16",
+      "gender": "0",
+      "class": {
+        "id": 1,
+        "name": "C0222G1"
+      }
+    },
+    {
+      "id": 996,
+      "name": "hoang",
+      "dateOfBirth": "2022-07-09",
+      "gender": "1",
+      "class": {
+        "id": 2,
+        "name": "C1221G1"
+      }
+    },
+    {
+      "id": 997,
+      "name": "Hung ",
+      "dateOfBirth": "2022-07-20",
+      "gender": "1",
+      "class": {
+        "id": 2,
+        "name": "C1221G1"
       }
     }
   ],

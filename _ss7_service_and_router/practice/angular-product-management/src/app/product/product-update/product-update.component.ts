@@ -42,7 +42,10 @@ categoryList: Category[]
 
   onSubmit() {
     const product = this.productUpdateForm.value;
-    this.productService.updateProduct(product).subscribe();
+    this.productService.updateProduct(product).subscribe(
+      value => {},
+
+    );
     this.router.navigateByUrl('/');
   }
 

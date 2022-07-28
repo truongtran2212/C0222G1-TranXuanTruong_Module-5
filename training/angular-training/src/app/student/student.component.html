@@ -14,15 +14,16 @@
           <th class="text-center">#</th>
           <th class="text-center">Name</th>
           <th class="text-center">Day Of Birth</th>
+
           <th class="text-center">Gender</th>
           <th class="text-center">Class</th>
-          <th class="text-center">Class</th>
+          <th class="text-center">Update</th>
           <th class="text-center">Delete</th>
 
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let student of studentList ;index as i">
+        <tr *ngFor="let student of studentList | paginate: { itemsPerPage: 3, currentPage: p } ;index as i">
 
           <td>{{i + 1}}</td>
           <td>{{student.name}}</td>
@@ -36,18 +37,20 @@
           <td>{{student.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
           <td>{{student.class.name}}</td>
 
-          <td>
+          <td style="text-align: center">
             <a routerLink="/edit-customer/{{student.id}}">
-              <button class="btn btn-light">Update</button>
+              <button class="btn btn-light">
+                <i style="font-size: 1.5rem" class="fa-solid fa-pen-to-square btn text-info"></i>
+              </button>
             </a>
           </td>
-          <td>
+          <td style="text-align: center">
             <a style="color: white" href="#"
                (click)="valueOf(student.id, student.name)"
                data-toggle="modal"
                data-target="#delete">
               <button class="btn btn-light">
-                Delete
+                <i style=" font-size: 1.5rem" class="fa-solid fa-trash-can btn text-danger"></i>
               </button>
             </a>
           </td>
@@ -55,13 +58,15 @@
         </tbody>
       </table>
     </div>
-    <div>
-      <button class="btn btn-light">Previous</button>
-      <button class="btn btn-light">1</button>
-      <button class="btn btn-light">2</button>
-      <button class="btn btn-light">...</button>
-      <button class="btn btn-light">Next</button>
-    </div>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+<!--    <div>-->
+<!--      <button class="btn btn-light">Previous</button>-->
+<!--      <button class="btn btn-light">1</button>-->
+<!--      <button class="btn btn-light">2</button>-->
+<!--      <button class="btn btn-light">...</button>-->
+<!--      <button class="btn btn-light">Next</button>-->
+<!--    </div>-->
 
     <button class=" btn btn-primary" data-toggle="modal" data-target="#form-create">Create</button>
   </div>

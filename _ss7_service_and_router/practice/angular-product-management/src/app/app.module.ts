@@ -3,25 +3,32 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './product/product-list/product-list.component';
-import { ProductCreateComponent } from './product/product-create/product-create.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { ProductUpdateComponent } from './product/product-update/product-update.component';
 import {HttpClientModule} from '@angular/common/http';
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {SharedModule} from "./shared/shared.module";
+import {NavBarComponent} from "./shared/nav-bar/nav-bar.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    ProductCreateComponent,
-    ProductUpdateComponent
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      closeButton: true,
+      progressBar: true,
+      positionClass:   'toast-top-right',
+    }),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,96 @@
+{
+  "ticketList": [
+    {
+      "id": 1,
+      "cost": 100000,
+      "start": "Đà Nẵng",
+      "end": "Huế",
+      "dayStart": "2022-07-28",
+      "time": "20:00",
+      "home": {
+        "id": 1,
+        "name": "Phương Trang"
+      },
+      "quantity": -9
+    },
+    {
+      "id": 2,
+      "cost": 450000,
+      "start": "Đà Nẵng",
+      "end": "Hải Phòng",
+      "dayStart": "2022-07-28",
+      "time": "22:00",
+      "home": {
+        "id": 2,
+        "name": "Trung Nguyên"
+      },
+      "quantity": -11
+    },
+    {
+      "id": 3,
+      "cost": 200000,
+      "start": "Đà Nẵng",
+      "end": "Hà Nội",
+      "dayStart": "2022-07-28",
+      "time": "08:00",
+      "home": {
+        "id": 1,
+        "name": "Phương Trang"
+      },
+      "quantity": 5
+    },
+    {
+      "id": 4,
+      "cost": 700000,
+      "start": "Đà Nẵng",
+      "end": "Quy Nhơn",
+      "dayStart": "2022-07-28",
+      "time": "17:00",
+      "home": {
+        "id": 3,
+        "name": "Trung Tín"
+      },
+      "quantity": 4
+    },
+    {
+      "id": 5,
+      "cost": 2312,
+      "start": "Đà Nẵng",
+      "end": "Sài Gòn",
+      "dayStart": "2022-07-15",
+      "time": "09:00",
+      "home": {
+        "id": 1,
+        "name": "Phương Trang"
+      },
+      "quantity": 554
+    },
+    {
+      "id": 6,
+      "cost": 99,
+      "start": "Huế 99",
+      "end": "Đà Nẵng 99",
+      "dayStart": "2022-07-30",
+      "time": "20:20",
+      "home": {
+        "id": 2,
+        "name": "Trung Nguyên"
+      },
+      "quantity": 99
+    }
+  ],
+  "homeList": [
+    {
+      "id": 1,
+      "name": "Phương Trang"
+    },
+    {
+      "id": 2,
+      "name": "Trung Nguyên"
+    },
+    {
+      "id": 3,
+      "name": "Trung Tín"
+    }
+  ]
+}

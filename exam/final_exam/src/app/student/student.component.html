@@ -1,0 +1,188 @@
+<a data-toggle="modal"
+   data-target="#search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
+    <i class="fa-solid fa-magnifying-glass" style="font-size: 1.5rem"></i></button>
+</a>
+
+<div class="bg-menu table font-weight-bold" style="padding-top: 100px">
+  <div class="container-fluid body">
+    <div class="center container-fluid">
+      <h1 style="text-align: center">Danh sách khách hàng</h1>
+      <table style="border-collapse:  collapse; width: 100%" id="employeeList">
+        <thead>
+        <tr>
+          <th class="text-center">#</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Day Of Birth</th>
+          <th class="text-center">Gender</th>
+          <th class="text-center">Class</th>
+          <th class="text-center">Update</th>
+          <th class="text-center">Delete</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let student of studentList | paginate: { itemsPerPage: 3, currentPage: p } ;index as i">
+
+          <td>{{i + 1}}</td>
+          <td>{{student.name}}</td>
+          <td>
+
+            <span *ngIf="student.gender == 0">Female</span>
+            <span *ngIf="student.gender == 1">Male</span>
+            <span *ngIf="student.gender == 2">Other</span>
+
+          </td>
+          <td>{{student.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
+          <td>{{student.class.name}}</td>
+
+          <td style="text-align: center">
+            <a routerLink="/edit-customer/{{student.id}}">
+              <button class="btn btn-light">
+                <i style="font-size: 1.5rem" class="fa-solid fa-pen-to-square btn text-info"></i>
+              </button>
+            </a>
+          </td>
+          <td style="text-align: center">
+            <a style="color: white" href="#"
+               (click)="valueOf(student.id, student.name)"
+               data-toggle="modal"
+               data-target="#delete">
+              <button class="btn btn-light">
+                <i style=" font-size: 1.5rem" class="fa-solid fa-trash-can btn text-danger"></i>
+              </button>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+<!--    <div>-->
+<!--      <button class="btn btn-light">Previous</button>-->
+<!--      <button class="btn btn-light">1</button>-->
+<!--      <button class="btn btn-light">2</button>-->
+<!--      <button class="btn btn-light">...</button>-->
+<!--      <button class="btn btn-light">Next</button>-->
+<!--    </div>-->
+
+    <button class=" btn btn-primary" data-toggle="modal" data-target="#form-create">Create</button>
+  </div>
+</div>
+
+<form [formGroup]="studentForm" novalidate>
+  <div class="modal " id="form-create">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="p-3 bg-modal">
+          <h4 style="text-align: center">Thêm mới học sinh</h4>
+
+          <div class="form-group">
+            <label>Tên học sinh</label>
+            <input class="form-control" type="text" formControlName="name">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="studentForm.controls.name.hasError('required')
+        && (studentForm.controls.name.dirty || studentForm.controls.name.touched)">
+            Input name, pls!!!
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="studentForm.controls.name.hasError('pattern')
+        && (studentForm.controls.name.dirty || studentForm.controls.name.touched)">
+            Wrong format
+          </div>
+
+
+          <div class="form-group">
+            <label>Ngày sinh</label>
+            <input class="form-control" type="date" formControlName="dateOfBirth">
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="studentForm.controls.dateOfBirth.hasError('required')
+        && (studentForm.controls.dateOfBirth.dirty || studentForm.controls.dateOfBirth.touched)">
+            Input day of birth, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Giới tính</label>
+            <select formControlName="gender" class="form-control w-100">
+              <option value="">----- Vui lòng chọn giới tính của bạn-----</option>
+              <option value="0">Female</option>
+              <option value="1">Male</option>
+              <option value="2">Other</option>
+            </select>
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="studentForm.controls.gender.hasError('required')
+        && (studentForm.controls.gender.dirty || studentForm.controls.gender.touched)">
+            Input gender, pls!!!
+          </div>
+
+          <div class="form-group">
+            <label>Lớp học</label>
+            <select class="form-control w-100" formControlName="class">
+              <option value="">---- Vui lòng chọn lớp ----</option>
+              <option [ngValue]="class" *ngFor="let class of classList ">{{class.name}}</option>
+            </select>
+          </div>
+
+          <div class="mb-3 text-danger" *ngIf="studentForm.controls.class.hasError('required')
+        && (studentForm.controls.class.dirty || studentForm.controls.class.touched)">
+            Input class, pls!!!
+          </div>
+
+          <button class="btn btn-dark" (click)="onSubmitCreate()" [disabled]="studentForm.invalid"
+                  data-dismiss="modal">Add new
+          </button>
+          &nbsp;
+          <button class="btn btn-dark" type="submit" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="modal" id="delete">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100 text-center" id="name">Bạn có muốn xóa khách hàng tên {{name}} không?</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="delete()">
+          <a class="text-white">Xóa</a>
+        </button>
+        <button type="button" class="btn btn-dark " data-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="search">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100 text-center">Chọn thuộc tính bạn muốn tìm kiếm</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="form-group">
+        <div class="modal-body footer border- 0">
+          <input [(ngModel)]="name" type="text" placeholder="Tên học viên" class="form-control">
+
+          <select [(ngModel)]="idClass" class="form-control w-100">
+            <option value="">---Chọn lớp muốn tìm kiếm---</option>
+            <option [ngValue]="class.id" *ngFor="let class of classList">{{class.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="submit" class="btn btn-dark" (click)="search()" data-dismiss="modal">
+          Tìm kiếm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

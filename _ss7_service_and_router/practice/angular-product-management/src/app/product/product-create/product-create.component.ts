@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ProductService} from "../../service/product.service";
 import {Router} from "@angular/router";
 import {Category} from "../../module/Category";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-product-create',
@@ -11,12 +12,13 @@ import {Category} from "../../module/Category";
 })
 export class ProductCreateComponent implements OnInit {
 
-  productForm : FormGroup;
+  productForm: FormGroup;
 
   categoryList: Category[]
 
   constructor(private productService: ProductService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.productForm = new FormGroup({
@@ -34,8 +36,12 @@ export class ProductCreateComponent implements OnInit {
   submit() {
     const product = this.productForm.value;
     this.productService.saveProduct(product).subscribe(value => {
-        this.productForm.reset()
-      this.router.navigateByUrl('/')
+      this.productForm.reset()
+
+    }, error => {
+
+    }, () => {
+      this.router.navigateByUrl('/toast/create-successful');
     })
   }
 }

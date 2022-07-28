@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-img-slide',
@@ -6,8 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./img-slide.component.css']
 })
 export class ImgSlideComponent implements OnInit {
-  @Input()
-  currentImg: '';
+  @ViewChild('template') template: TemplateRef<any>;
   constructor() { }
 
   ngOnInit(): void {

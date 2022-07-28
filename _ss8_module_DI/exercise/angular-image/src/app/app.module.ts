@@ -9,7 +9,7 @@ import {ImgSliderModule} from "./img-slider/img-slider.module";
 @NgModule({
   declarations: [
     AppComponent,
-    ImgSliderComponent
+
   ],
     imports: [
         BrowserModule,

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ContentChildren, OnInit, QueryList} from '@angular/core';
 import {ListImage} from "../../list-image";
+import {ImgSlideComponent} from "./img-slide/img-slide.component";
 
 @Component({
   selector: 'app-img-slider',
@@ -8,37 +9,32 @@ import {ListImage} from "../../list-image";
 })
 export class ImgSliderComponent implements OnInit {
 
-  listImg: ListImage;
-
+  @ContentChildren(ImgSlideComponent) slides: QueryList<ImgSlideComponent>;
   component;
-
-  currentImg;
   activeIndex = 0;
 
   constructor() {
-    this.listImg = new ListImage;
   }
 
-  ngOnInit() {
-    this.component = this.listImg.listImage;
-    this.currentImg = this.component[this.activeIndex];
+  ngOnInit(): void {
   }
 
+  ngAfterContentInit() {
+    console.log(this.slides);
+    this.component = this.slides.first;
+  }
 
   previous() {
-    if (this.activeIndex > 0)
-    {  this.activeIndex--;
+    if (this.activeIndex > 0) {
+      this.activeIndex--;
     }
-    this.currentImg = this.component[this.activeIndex];
-
+    this.component = this.slides.toArray()[this.activeIndex];
   }
 
   next() {
-    if (this.activeIndex < this.listImg.getLength() - 1)
-    { this.activeIndex++;
+    if (this.activeIndex < this.slides.length - 1) {
+      this.activeIndex++;
     }
-    this.currentImg = this.component[this.activeIndex];
-
+    this.component = this.slides.toArray()[this.activeIndex];
   }
-
 }

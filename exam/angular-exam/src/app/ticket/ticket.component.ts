@@ -27,6 +27,7 @@ export class TicketComponent implements OnInit {
 
   p: number = 1;
 
+
   ticket: Ticket;
   ticketForm = new FormGroup({
     id: new FormControl(),
@@ -50,7 +51,7 @@ export class TicketComponent implements OnInit {
   }
 
   getAllTicket() {
-    this.ticketService.findAllTicket().subscribe(value => {
+    this.ticketService.findAllTicket(0).subscribe(value => {
       this.ticketList = value;
     }, error => {
       console.log(error)
@@ -70,16 +71,16 @@ export class TicketComponent implements OnInit {
     return (day.getTime() > currDay.getTime()) ? null : {error: true};
   }
 
-  valueOf( id: number, start: string, end: string, time: string, dayStart: string) {
-    this.start = start;
-    this.end = end;
-    this.time = time;
-    this.dayStart = dayStart;
-    this.ticketService.findById(id).subscribe(value => {
-      this.ticket = value;
-      this.ticket.quantity -= 1
-    })
-  }
+  // valueOf( id: number, start: string, end: string, time: string, dayStart: string) {
+  //   this.start = start;
+  //   this.end = end;
+  //   this.time = time;
+  //   this.dayStart = dayStart;
+  //   this.ticketService.findById(id).subscribe(value => {
+  //     this.ticket = value;
+  //     this.ticket.quantity -= 1
+  //   })
+  // }
 
   onSubmitCreate() {
     const ticketObj = this.ticketForm.value
@@ -92,21 +93,24 @@ export class TicketComponent implements OnInit {
       this.getAllTicket();
     })
   }
+  //
+  // search() {
+  //   this.ticketService.search(this.start, this.end).subscribe(value => {
+  //     this.ticketList = value;
+  //   }, error => {
+  //     console.log(error)
+  //   }, () => {
+  //   })
+  // }
+  //
+  // book() {
+  //   this.ticketService.update(this.ticket).subscribe(value => {
+  //     }, error => {
+  //   }, () => {
+  //     this.getAllTicket();
+  //   })
+  // }
+  nextPage() {
 
-  search() {
-    this.ticketService.search(this.start, this.end).subscribe(value => {
-      this.ticketList = value;
-    }, error => {
-      console.log(error)
-    }, () => {
-    })
-  }
-
-  book() {
-    this.ticketService.update(this.ticket).subscribe(value => {
-      }, error => {
-    }, () => {
-      this.getAllTicket();
-    })
   }
 }

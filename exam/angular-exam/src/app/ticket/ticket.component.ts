@@ -27,8 +27,8 @@ export class TicketComponent implements OnInit {
 
   p: number = 1;
 
-
   ticket: Ticket;
+
   ticketForm = new FormGroup({
     id: new FormControl(),
     cost: new FormControl('', [Validators.required, Validators.min(1)]),
@@ -94,21 +94,22 @@ export class TicketComponent implements OnInit {
     })
   }
   //
-  // search() {
-  //   this.ticketService.search(this.start, this.end).subscribe(value => {
-  //     this.ticketList = value;
-  //   }, error => {
-  //     console.log(error)
-  //   }, () => {
-  //   })
-  // }
+  search() {
+    this.ticketService.search(this.start, this.end).subscribe(value => {
+      this.ticketList = value;
+
+    }, error => {
+      console.log(error)
+    }, () => {
+    })
+  }
   //
   book() {
     this.ticketService.update(this.ticket).subscribe(value => {
       console.log(value)
       }, error => {
     }, () => {
-      this.getAllTicket();
+      this.ngOnInit();
     })
   }
   nextPage() {

@@ -39,6 +39,22 @@ public class TicketRestController {
         return new ResponseEntity<>(ticketService.save(ticket), HttpStatus.OK);
     }
 
-    @GetMapping("/search")
-    private ResponseEntity<?> search
+//    @GetMapping("/search/{start}/{end/{page}")
+//    private ResponseEntity<?> search (@PathVariable(name = "page", defaultValue = "0") int page,
+//                                      @PathVariable(name = "start") String start,
+//                                      @PathVariable(name = "end") String end) {
+//        return new ResponseEntity<>(ticketService.search(PageRequest.of(page, 6),start,end).getContent(), HttpStatus.OK);
+//    }
+
+    @GetMapping("/search/{start}/{end}")
+    private ResponseEntity<?> search (@RequestParam(name = "page", defaultValue = "0") int page,
+                                      @PathVariable(name = "start") String start,
+                                      @PathVariable(name = "end") String end) {
+        if(end.equals(" ")){
+            end = "";
+        } if(start.equals(" ")){
+            start = "";
+        }
+        return new ResponseEntity<>(ticketService.searchList(start,end), HttpStatus.OK);
+    }
 }

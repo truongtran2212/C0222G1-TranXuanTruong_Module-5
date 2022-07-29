@@ -56,7 +56,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let ticket of ticketList | paginate: { itemsPerPage: 2, currentPage: p } ;index as i">
+        <tr *ngFor="let ticket of ticketList | paginate: { itemsPerPage: 3, currentPage: p } ;index as i">
 
           <!--          <td>{{i + 1}}</td>-->
 
@@ -200,30 +200,34 @@
   </div>
 </form>
 
-<!--<div class="modal" id="search">-->
-<!--  <div class="modal-dialog">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="modal-header">-->
-<!--        <h4 class="modal-title w-100 text-center">Chọn thuộc tính bạn muốn tìm kiếm</h4>-->
-<!--        <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-<!--      </div>-->
+<div class="modal" id="search">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100 text-center">Chọn thuộc tính bạn muốn tìm kiếm</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
 
-<!--      <div class="form-group">-->
-<!--        <div class="modal-body footer border- 0">-->
-<!--          <input [(ngModel)]="start" type="text" placeholder="Điểm đi" class="form-control">-->
+      <div class="form-group">
+        <div class="modal-body footer border- 0">
+          <label>
+            <input [(ngModel)]="start" type="text" placeholder="Điểm đi" class="form-control">
+          </label>
 
-<!--          <input [(ngModel)]="end" type="text" placeholder="Điểm đến" class="form-control">-->
+          <label>
+            <input [(ngModel)]="end" type="text" placeholder="Điểm đến" class="form-control">
+          </label>
 
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="modal-footer border-0">-->
-<!--        <button type="submit" class="btn btn-dark" (click)="search()" data-dismiss="modal">-->
-<!--          Tìm kiếm-->
-<!--        </button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="submit" class="btn btn-dark" (click)="search()" data-dismiss="modal">
+          Tìm kiếm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer class="bg-secondary text-center text-white">
   <!-- Grid container -->

@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 
 @Service
 public class TicketServiceImpl implements TicketService {
@@ -30,7 +32,12 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public Page<Ticket> search(Pageable pageable, String start, String end) {
-        return ticketRepository.search(pageable, start,end);
+    public List<Ticket> searchList(String start, String end) {
+        return ticketRepository.searchList("%" + start + "%","%" + end + "%");
     }
+//
+//    @Override
+//    public Page<Ticket> search(Pageable pageable, String start, String end) {
+//        return ticketRepository.search(pageable,start,end);
+//    }
 }

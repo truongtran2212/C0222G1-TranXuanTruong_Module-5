@@ -39,10 +39,15 @@ export class TicketService {
   findAllHome(): Observable<Home[]> {
     return this.http.get<Home[]>(this.API_HOME);
   }
-  //
-  // search(start: string,end: string): Observable<Ticket[]> {
-  //   return this.http.get<Ticket[]>(this.API + '?start_like=' + start + '&' + 'end_like=' + end)
-  // }
 
+  search(start: string, end: string): Observable<Ticket[]> {
 
+    if(end === '') {
+      end = '%20';
+    } if(start === '') {
+      start = '%20'
+    }
+    return this.http.get<Ticket[]>(this.API + '/search/'+ 'start=' + start + '/' + end)
+
+  }
 }

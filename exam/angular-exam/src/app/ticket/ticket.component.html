@@ -56,7 +56,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let ticket of ticketList | paginate: { itemsPerPage: 3, currentPage: p } ;index as i">
+        <tr *ngFor="let ticket of ticketList | paginate: { itemsPerPage: 3, currentPage: p }  ;index as i">
 
           <!--          <td>{{i + 1}}</td>-->
 
@@ -82,8 +82,8 @@
         </tbody>
       </table>
     </div>
-    <button class="btn btn-light">Previous</button>
 
+<!--    <button class="btn btn-light" (click)="PreviousPage()">Previous</button>-->
 <!--    <button class="btn btn-light" (click)="nextPage()">Next</button>-->
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
 

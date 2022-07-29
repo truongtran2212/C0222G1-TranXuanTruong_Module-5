@@ -22,6 +22,6 @@ public interface TicketRepository extends PagingAndSortingRepository<Ticket, Int
 //    @Query(value = "select t from Ticket t where t.start like %:start% and t.end like %:end%")
 //    Page<Ticket> search (Pageable pageable, @Param("start") String start, @Param("end") String end);
 
-    @Query(value = "select * from ticket where start like :start and end like :end", nativeQuery = true)
+    @Query(value = "select * from ticket where start like :start and `end` like :end", nativeQuery = true)
     List<Ticket> searchList (@Param("start") String start, @Param("end") String end);
 }

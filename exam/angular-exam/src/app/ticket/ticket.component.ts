@@ -51,7 +51,7 @@ export class TicketComponent implements OnInit {
   }
 
   getAllTicket() {
-    this.ticketService.findAllTicket(0).subscribe(value => {
+    this.ticketService.findAllTicket().subscribe(value => {
       this.ticketList = value;
     }, error => {
       console.log(error)
@@ -107,7 +107,7 @@ export class TicketComponent implements OnInit {
   book() {
     this.ticketService.update(this.ticket).subscribe(value => {
       console.log(value)
-      }, error => {
+    }, error => {
     }, () => {
       this.ngOnInit();
     })

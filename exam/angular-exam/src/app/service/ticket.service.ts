@@ -16,8 +16,8 @@ export class TicketService {
   API_HOME = 'http://localhost:8080/homeList'
 
 
-  findAllTicket(index: number): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(this.API + '?index=' + index);
+  findAllTicket(): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(this.API);
   }
 
   create(ticket: Ticket): Observable<void> {
@@ -47,7 +47,7 @@ export class TicketService {
     } if(start === '') {
       start = '%20'
     }
-    return this.http.get<Ticket[]>(this.API + '/search/'+ 'start=' + start + '/' + end)
+    return this.http.get<Ticket[]>(this.API + '/search/' + start + '/' + end)
 
   }
 }

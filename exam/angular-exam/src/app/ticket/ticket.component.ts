@@ -72,16 +72,15 @@ export class TicketComponent implements OnInit {
     return (day.getTime() > currDay.getTime()) ? null : {error: true};
   }
 
-  // valueOf( id: number, start: string, end: string, time: string, dayStart: string) {
-  //   this.start = start;
-  //   this.end = end;
-  //   this.time = time;
-  //   this.dayStart = dayStart;
-  //   this.ticketService.findById(id).subscribe(value => {
-  //     this.ticket = value;
-  //     this.ticket.quantity -= 1
-  //   })
-  // }
+  valueOf( id: number, start: string, end: string, time: string, dayStart: string) {
+    this.start = start;
+    this.end = end;
+    this.time = time;
+    this.dayStart = dayStart;
+    this.ticketService.findById(id).subscribe(value => {
+      this.ticket = value;
+    })
+  }
 
   onSubmitCreate() {
     const ticketObj = this.ticketForm.value
@@ -104,14 +103,16 @@ export class TicketComponent implements OnInit {
   //   })
   // }
   //
-  // book() {
-  //   this.ticketService.update(this.ticket).subscribe(value => {
-  //     }, error => {
-  //   }, () => {
-  //     this.getAllTicket();
-  //   })
-  // }
+  book() {
+    this.ticketService.update(this.ticket).subscribe(value => {
+      console.log(value)
+      }, error => {
+    }, () => {
+      this.getAllTicket();
+    })
+  }
   nextPage() {
 
   }
+
 }

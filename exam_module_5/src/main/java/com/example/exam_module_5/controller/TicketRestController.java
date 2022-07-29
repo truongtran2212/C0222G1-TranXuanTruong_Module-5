@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/ticketList")
@@ -22,8 +24,21 @@ public class TicketRestController {
 
     @PostMapping("/create")
     private ResponseEntity<?> create(@RequestBody Ticket ticket) {
-        return new ResponseEntity<>(ticketService.create(ticket), HttpStatus.CREATED);
+        return new ResponseEntity<>(ticketService.save(ticket), HttpStatus.CREATED);
     }
 
-    
+    @GetMapping("/{id}")
+    private ResponseEntity<Ticket> findId (@PathVariable int id) {
+        return new ResponseEntity<>(ticketService.findById(id),HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}")
+    private ResponseEntity<?> update (@PathVariable int id) {
+        Ticket ticket = ticketService.findById(id);
+        ticket.setQuantity(ticket.getQuantity() - 1);
+        return new ResponseEntity<>(ticketService.save(ticket), HttpStatus.OK);
+    }
+
+    @GetMapping("/search")
+    private ResponseEntity<?> search
 }

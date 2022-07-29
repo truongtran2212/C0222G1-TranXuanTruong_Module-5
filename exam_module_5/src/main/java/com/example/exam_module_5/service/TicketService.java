@@ -7,5 +7,9 @@ import org.springframework.data.domain.Pageable;
 public interface TicketService {
         Page<Ticket> findAll(Pageable pageable);
 
-        Ticket create (Ticket ticket);
+        Ticket save (Ticket ticket);
+
+        Ticket findById (int id);
+
+        Page<Ticket> search (Pageable pageable, String start, String end);
 }

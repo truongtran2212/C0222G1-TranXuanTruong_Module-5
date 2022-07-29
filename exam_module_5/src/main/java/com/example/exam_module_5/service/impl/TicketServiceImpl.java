@@ -20,7 +20,17 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public Ticket create(Ticket ticket) {
+    public Ticket save(Ticket ticket) {
       return ticketRepository.save(ticket);
+    }
+
+    @Override
+    public Ticket findById(int id) {
+        return ticketRepository.findById(id);
+    }
+
+    @Override
+    public Page<Ticket> search(Pageable pageable, String start, String end) {
+        return ticketRepository.search(pageable, start,end);
     }
 }

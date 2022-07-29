@@ -51,7 +51,7 @@
           <th class="text-center">Giờ khởi hành</th>
           <th class="text-center">Nhà xe</th>
           <th class="text-center">Số lượng</th>
-<!--          <th class="text-center">Đặt vé</th>-->
+          <th class="text-center">Đặt vé</th>
 
         </tr>
         </thead>
@@ -67,17 +67,17 @@
           <td>{{ticket.time}}</td>
           <td>{{ticket.home.name}}</td>
           <td>{{ticket.quantity}}</td>
-<!--          <td style="text-align: center">-->
-<!--            <a style="color: white"-->
-<!--               (click)="valueOf(ticket.id, ticket.start, ticket.end, ticket.time, ticket.dayStart)"-->
-<!--               data-toggle="modal"-->
-<!--               data-target="#book">-->
-<!--              <button class="btn btn-light">-->
-<!--                &lt;!&ndash;                          <i style=" font-size: 1.5rem" class="fa-solid fa-trash-can btn text-danger"></i>&ndash;&gt;-->
-<!--                Đặt vé-->
-<!--              </button>-->
-<!--            </a>-->
-<!--          </td>-->
+          <td style="text-align: center">
+            <a style="color: white"
+               (click)="valueOf(ticket.id, ticket.start, ticket.end, ticket.time, ticket.dayStart)"
+               data-toggle="modal"
+               data-target="#book">
+              <button class="btn btn-light">
+                <!--                          <i style=" font-size: 1.5rem" class="fa-solid fa-trash-can btn text-danger"></i>-->
+                Đặt vé
+              </button>
+            </a>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -295,23 +295,23 @@
   <!-- Copyright -->
 </footer>
 
-<!--<div class="modal" id="book">-->
-<!--  <div class="modal-dialog">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="modal-header">-->
-<!--        <h1 style="text-align: center"></h1>-->
-<!--        <h4 class="modal-title w-100 text-center">-->
-<!--          Bạn có chắc muốn đặt vé xe từ {{start}}-->
-<!--          đến {{end}} vào {{time}} ngày {{dayStart}} không!-->
-<!--        </h4>-->
-<!--        <button type="button" class="close" data-dismiss="modal">&times;</button>-->
-<!--      </div>-->
-<!--      <div class="modal-footer">-->
-<!--        <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="book()">-->
-<!--          <a class="text-white">Có</a>-->
-<!--        </button>-->
-<!--        <button type="button" class="btn btn-dark " data-dismiss="modal">Không</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="modal" id="book">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 style="text-align: center"></h1>
+        <h4 class="modal-title w-100 text-center">
+          Bạn có chắc muốn đặt vé xe từ {{start}}
+          đến {{end}} vào {{time}} ngày {{dayStart | date: "dd-MM-yyyy"}} không!
+        </h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="book()">
+          <a class="text-white">Có</a>
+        </button>
+        <button type="button" class="btn btn-dark " data-dismiss="modal">Không</button>
+      </div>
+    </div>
+  </div>
+</div>

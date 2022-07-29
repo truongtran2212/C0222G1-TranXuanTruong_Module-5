@@ -24,17 +24,17 @@ export class TicketService {
     return this.http.post<void>(this.API + '/create' , ticket)
   }
   //
-  // findById(id: number): Observable<Ticket> {
-  //   return this.http.get<Ticket>(this.API + '/' + id);
-  // }
-  //
+  findById(id: number): Observable<Ticket> {
+    return this.http.get<Ticket>(this.API + '/' + id);
+  }
+
   // delete(id: number): Observable<any> {
   //   return this.http.delete<any>(this.API + '/' + id);
   // }
   //
-  // update(ticket: Ticket): Observable<void> {
-  //   return this.http.patch<void>(this.API + '/' + ticket.id, ticket)
-  // }
+  update(ticket: Ticket): Observable<void> {
+    return this.http.patch<void>(this.API + '/' + ticket.id, ticket)
+  }
   //
   findAllHome(): Observable<Home[]> {
     return this.http.get<Home[]>(this.API_HOME);

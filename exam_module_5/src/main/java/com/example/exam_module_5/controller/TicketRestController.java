@@ -22,7 +22,8 @@ public class TicketRestController {
 
     @PostMapping("/create")
     private ResponseEntity<?> create(@RequestBody Ticket ticket) {
-        
         return new ResponseEntity<>(ticketService.create(ticket), HttpStatus.CREATED);
     }
+
+    
 }

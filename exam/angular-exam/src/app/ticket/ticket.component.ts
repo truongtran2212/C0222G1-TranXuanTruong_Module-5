@@ -61,6 +61,7 @@ export class TicketComponent implements OnInit {
   getAllHome() {
     this.ticketService.findAllHome().subscribe(value => {
       this.homeList = value;
+      console.log(this.homeList)
     }, error => {
       console.log(error)
     })
